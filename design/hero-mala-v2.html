@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Akhand 108: hero screen v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center; }
+  #frame { position: relative; height: 100vh; aspect-ratio: 9 / 16; max-width: 100vw; }
+  #frame svg, #frame canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #fx { pointer-events: none; }
+  .dev { font-family: "Tiro Devanagari Sanskrit", "Nirmala UI", "Noto Serif Devanagari", serif; }
+  .lat { font-family: "Cormorant Garamond", Georgia, serif; }
+  .caps { letter-spacing: 0.3em; }
+  #verse, #feed { transition: opacity 0.5s ease; }
+  .spin { transform-box: fill-box; transform-origin: center; animation: spin 140s linear infinite; }
+  .spin.rev { animation-duration: 90s; animation-direction: reverse; }
+  .spin.slow { animation-duration: 260s; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #nMala.bump { animation: bump 0.9s ease-out; transform-box: fill-box; transform-origin: center; }
+  @keyframes bump { 0% { transform: scale(1); fill: #fff; } 25% { transform: scale(1.22); fill: #ffd27a; } 100% { transform: scale(1); } }
+</style>
+</head>
+<body>
+<div id="frame">
+<svg id="stage" viewBox="0 0 1080 1920" role="img" aria-label="108 agents praying, shown as a mala of 108 beads">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="80%">
+      <stop offset="0" stop-color="#7a2410"/>
+      <stop offset="0.38" stop-color="#3d0f17"/>
+      <stop offset="0.75" stop-color="#1a0716"/>
+      <stop offset="1" stop-color="#0c0410"/>
+    </radialGradient>
+    <radialGradient id="aura">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#ff9a2e" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#ff9a2e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core">
+      <stop offset="0" stop-color="#fff3c9"/>
+      <stop offset="0.6" stop-color="#ffc24a"/>
+      <stop offset="1" stop-color="#e8782a"/>
+    </radialGradient>
+    <path id="ringPath" d="M 0 -497 A 497 497 0 1 1 -0.1 -497"/>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#bg)"/>
+
+  <text x="540" y="112" text-anchor="middle" class="lat caps" font-size="44" font-weight="600" fill="#ffd27a">AKHAND</text>
+  <text x="540" y="166" text-anchor="middle" class="lat" font-size="34" font-style="italic" fill="#fff1d6">108 agents in unbroken prayer</text>
+
+  <g transform="translate(540 760)">
+    <circle id="auraC" r="640" fill="url(#aura)" opacity="0.5"/>
+
+    <g class="spin slow">
+      <text class="dev" font-size="23" fill="#ffd27a" fill-opacity="0.85"><textPath id="ringText" href="#ringPath"></textPath></text>
+    </g>
+    <g id="ticks" class="spin rev"></g>
+    <circle r="398" fill="none" stroke="#ffd27a" stroke-opacity="0.5" stroke-width="1.5"/>
+
+    <g id="petals"></g>
+    <g id="innerPetals" class="spin"></g>
+
+    <circle r="150" fill="#2a0a10" stroke="#ffd27a" stroke-width="2.5"/>
+    <circle id="coreGlow" r="150" fill="url(#aura)" opacity="0.4"/>
+    <g id="omG"><text y="54" text-anchor="middle" class="dev" font-size="176" fill="url(#core)">ॐ</text></g>
+
+    <g id="halos"></g>
+    <g id="beads"></g>
+  </g>
+
+  <g id="verse">
+    <text id="v1" x="540" y="1380" text-anchor="middle" class="dev" font-size="54" fill="#fff6e3"></text>
+    <text id="v2" x="540" y="1452" text-anchor="middle" class="dev" font-size="54" fill="#fff6e3"></text>
+    <text id="vmeta" x="540" y="1514" text-anchor="middle" class="lat caps" font-size="24" font-weight="600" fill="#ffd27a"></text>
+  </g>
+
+  <line x1="100" y1="1566" x2="980" y2="1566" stroke="#ffd27a" stroke-opacity="0.4"/>
+  <g class="lat" text-anchor="middle">
+    <text id="nShloka" x="220" y="1660" font-size="68" font-weight="600" fill="#fff6e3">4,31,208</text>
+    <text x="220" y="1704" class="caps" font-size="20" font-weight="600" fill="#ffb86b">SHLOKAS TODAY</text>
+    <line x1="400" y1="1606" x2="400" y2="1708" stroke="#ffd27a" stroke-opacity="0.4"/>
+    <text id="nMala" x="540" y="1660" font-size="68" font-weight="600" fill="#fff6e3">3,992</text>
+    <text x="540" y="1704" class="caps" font-size="20" font-weight="600" fill="#ffb86b">MALAS COMPLETE</text>
+    <line x1="680" y1="1606" x2="680" y2="1708" stroke="#ffd27a" stroke-opacity="0.4"/>
+    <text x="860" y="1660" font-size="68" font-weight="600" fill="#fff6e3">Day 12</text>
+    <text x="860" y="1704" class="caps" font-size="20" font-weight="600" fill="#ffb86b">WITHOUT A BREAK</text>
+  </g>
+
+  <g id="feed">
+    <circle id="feedDot" cx="0" cy="1783" r="7" fill="#fff"/>
+    <text id="feedText" x="540" y="1792" text-anchor="middle" class="lat caps" font-size="22" font-weight="600" fill="#fff1d6"></text>
+  </g>
+  <text x="540" y="1868" text-anchor="middle" class="lat" font-size="30" font-style="italic" fill="#fff1d6" fill-opacity="0.85">Sankalpa: for the soul of Mehul</text>
+</svg>
+<canvas id="fx" width="1080" height="1920"></canvas>
+</div>
+
+<script>
+(function () {
+  var NS = "http://www.w3.org/2000/svg", CX = 540, CY = 760;
+  function el(parent, name, attrs, text) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text) e.textContent = text;
+    parent.appendChild(e);
+    return e;
+  }
+  function polar(r, deg) { var a = (deg - 90) * Math.PI / 180; return [r * Math.cos(a), r * Math.sin(a)]; }
+  function p(r, deg) { var q = polar(r, deg); return q[0].toFixed(1) + " " + q[1].toFixed(1); }
+  function rgb(hex) { return [parseInt(hex.substr(1, 2), 16), parseInt(hex.substr(3, 2), 16), parseInt(hex.substr(5, 2), 16)]; }
+
+  var stations = [
+    { hi: "शिव जप", en: "SHIV JAPA", c: "#7cc4ff", v: ["ॐ नमः शिवाय", ""] },
+    { hi: "शिव स्तुति", en: "RUDRASHTAKAM", c: "#a8dcff", v: ["नमामीशमीशान निर्वाणरूपं", "विभुं व्यापकं ब्रह्मवेदस्वरूपम्"] },
+    { hi: "मृत्युंजय", en: "MAHAMRITYUNJAYA", c: "#d2ecff", v: ["ॐ त्र्यम्बकं यजामहे", "सुगन्धिं पुष्टिवर्धनम्"] },
+    { hi: "सप्तशती", en: "DURGA SAPTASHATI", c: "#ff4b3a", v: ["या देवी सर्वभूतेषु", "शक्तिरूपेण संस्थिता"] },
+    { hi: "दुर्गा", en: "DURGA CHALISA", c: "#ff2e63", v: ["नमो नमो दुर्गे सुख करनी", "नमो नमो अम्बे दुःख हरनी"] },
+    { hi: "गणेश", en: "GANESH VANDANA", c: "#ff8a1f", v: ["वक्रतुण्ड महाकाय", "सूर्यकोटि समप्रभ"] },
+    { hi: "राम", en: "RAMCHARITMANAS, AKHAND PATH", c: "#37d67a", v: ["मंगल भवन अमंगल हारी", "द्रवहु सो दसरथ अजिर बिहारी"] },
+    { hi: "हनुमान", en: "HANUMAN CHALISA", c: "#ff6a13", v: ["जय हनुमान ज्ञान गुन सागर", "जय कपीस तिहुँ लोक उजागर"] },
+    { hi: "विष्णु", en: "VISHNU DHYANAM", c: "#ffd23f", v: ["शान्ताकारं भुजगशयनं", "पद्मनाभं सुरेशम्"] },
+    { hi: "लक्ष्मी", en: "LAKSHMI MANTRA", c: "#ff7ac3", v: ["ॐ श्रीं महालक्ष्म्यै नमः", ""] },
+    { hi: "सूर्य", en: "GAYATRI MANTRA", c: "#ffb300", v: ["ॐ भूर्भुवः स्वः", "तत्सवितुर्वरेण्यम्"] },
+    { hi: "नवग्रह", en: "NAVAGRAHA MANTRA", c: "#b388ff", v: ["ॐ शं शनैश्चराय नमः", ""] }
+  ];
+  var grahas = ["#ff7a2f", "#f4f4ff", "#ff3b30", "#35d07f", "#ffd23f", "#ffc7e8", "#5b6cff", "#9aa0b5", "#c08a5a"];
+
+  // rotating mantra ring
+  var phrase = "ॐ नमः शिवाय  ·  ॐ दुं दुर्गायै नमः  ·  श्री राम जय राम जय जय राम  ·  ॐ गं गणपतये नमः  ·  ॐ नमो भगवते वासुदेवाय  ·  ";
+  document.getElementById("ringText").textContent = phrase + phrase + phrase + phrase;
+
+  // rotating tick ring: 108 marks
+  var ticks = document.getElementById("ticks");
+  for (var k = 0; k < 108; k++) {
+    var major = k % 9 === 0, a1 = polar(major ? 456 : 462, k * 360 / 108), a2 = polar(472, k * 360 / 108);
+    el(ticks, "line", { x1: a1[0].toFixed(1), y1: a1[1].toFixed(1), x2: a2[0].toFixed(1), y2: a2[1].toFixed(1), stroke: "#ffd27a", "stroke-opacity": major ? 0.9 : 0.4, "stroke-width": major ? 2.5 : 1.2 });
+  }
+
+  // petals
+  var petalsG = document.getElementById("petals"), petals = [], labels = [], energy = [], shownE = [];
+  for (var s = 0; s < 12; s++) {
+    var mid = s * 30 + 15;
+    var d = "M " + p(150, mid - 14) + " Q " + p(310, mid - 20) + " " + p(396, mid) + " Q " + p(310, mid + 20) + " " + p(150, mid + 14) + " Z";
+    petals.push(el(petalsG, "path", { d: d, fill: stations[s].c, "fill-opacity": 0.2, stroke: stations[s].c, "stroke-opacity": 0.95, "stroke-width": 2 }));
+    energy.push(0.3); shownE.push(-1);
+  }
+  for (s = 0; s < 12; s++) {
+    var lp = polar(296, s * 30 + 15);
+    labels.push(el(petalsG, "text", { x: lp[0].toFixed(1), y: (lp[1] + 10).toFixed(1), "text-anchor": "middle", class: "dev", "font-size": 29, fill: "#fff6e3" }, stations[s].hi));
+  }
+  var inner = document.getElementById("innerPetals");
+  for (s = 0; s < 12; s++) {
+    var m2 = s * 30;
+    el(inner, "path", { d: "M " + p(150, m2 - 11) + " Q " + p(200, m2 - 13) + " " + p(232, m2) + " Q " + p(200, m2 + 13) + " " + p(150, m2 + 11) + " Z", fill: "#ffd27a", "fill-opacity": 0.3, stroke: "#ffd27a", "stroke-width": 1.5 });
+  }
+
+  // beads
+  var defs = document.querySelector("defs"), beadsG = document.getElementById("beads"), halosG = document.getElementById("halos"), beads = [];
+  var now0 = performance.now() / 1000;
+  for (var i = 0; i < 108; i++) {
+    var g = Math.floor(i / 9), w = i % 9, hex = g === 11 ? grahas[w] : stations[g].c, col = rgb(hex);
+    var pos = polar(433, g * 30 + 3 + w * 3);
+    var grad = el(defs, "radialGradient", { id: "h" + i });
+    el(grad, "stop", { offset: 0, "stop-color": hex, "stop-opacity": 0.85 });
+    el(grad, "stop", { offset: 1, "stop-color": hex, "stop-opacity": 0 });
+    var halo = el(halosG, "circle", { cx: pos[0].toFixed(1), cy: pos[1].toFixed(1), r: 34, fill: "url(#h" + i + ")", opacity: 0 });
+    var dot = el(beadsG, "circle", { cx: pos[0].toFixed(1), cy: pos[1].toFixed(1), r: 8.5, stroke: hex, "stroke-opacity": 0.7, "stroke-width": 1.2 });
+    var period = 8 + Math.random() * 4;
+    beads.push({ dot: dot, halo: halo, station: g, col: col, hex: hex, x: CX + pos[0], y: CY + pos[1], period: period, next: now0 + Math.random() * period, lit: 0, sweepAt: -9, shown: "" });
+  }
+
+  // canvas effects: offering sparks, bell ripples, rising embers
+  var cv = document.getElementById("fx"), ctx = cv.getContext("2d");
+  var sparks = [], ripples = [], embers = [];
+  for (var e2 = 0; e2 < 80; e2++) embers.push({ x: Math.random() * 1080, y: Math.random() * 1920, v: 30 + Math.random() * 70, r: 1.4 + Math.random() * 2.6, ph: Math.random() * 6.28, a: 0.25 + Math.random() * 0.55 });
+  function sparkPos(sp, u) {
+    var e = u * u, mx = (sp.x + CX) / 2 + sp.px, my = (sp.y + CY) / 2 + sp.py, q = 1 - e;
+    return [q * q * sp.x + 2 * q * e * mx + e * e * CX, q * q * sp.y + 2 * q * e * my + e * e * CY];
+  }
+  function offer(b, t) {
+    var dx = CX - b.x, dy = CY - b.y, len = Math.sqrt(dx * dx + dy * dy);
+    sparks.push({ x: b.x, y: b.y, px: -dy / len * 130, py: dx / len * 130, t0: t, hex: b.hex });
+  }
+
+  // state
+  var shlokas = 431208, lastCount = 0, lastMala = Math.floor(shlokas / 108), omEnergy = 0, latest = null;
+  var nShloka = document.getElementById("nShloka"), nMala = document.getElementById("nMala");
+  var auraC = document.getElementById("auraC"), coreGlow = document.getElementById("coreGlow"), omG = document.getElementById("omG");
+  var fmt = new Intl.NumberFormat("en-IN");
+  function done(b, i, t) {
+    b.lit = 1; shlokas++; energy[b.station] = Math.min(1, energy[b.station] + 0.22);
+    offer(b, t); latest = { i: i, b: b };
+  }
+
+  // featured verse
+  var verse = document.getElementById("verse"), v1 = document.getElementById("v1"), v2 = document.getElementById("v2"), vmeta = document.getElementById("vmeta");
+  var featured = -1;
+  function feature(idx) {
+    featured = idx;
+    var st = stations[idx], agent = idx * 9 + 1 + Math.floor(Math.random() * 9);
+    verse.style.opacity = 0;
+    setTimeout(function () {
+      v1.textContent = st.v[0]; v2.textContent = st.v[1];
+      v1.setAttribute("y", st.v[1] ? 1380 : 1416);
+      vmeta.textContent = "AGENT " + String(agent).padStart(3, "0") + "  ·  " + st.en;
+      vmeta.setAttribute("fill", st.c);
+      verse.style.opacity = 1;
+    }, 500);
+  }
+  feature(0);
+  setInterval(function () { feature((featured + 1) % 12); }, 5000);
+
+  // live feed line
+  var feedText = document.getElementById("feedText"), feedDot = document.getElementById("feedDot");
+  setInterval(function () {
+    if (!latest) return;
+    var st = stations[latest.b.station];
+    feedText.textContent = "AGENT " + String(latest.i + 1).padStart(3, "0") + " OFFERED A SHLOKA  ·  " + st.en;
+    feedDot.setAttribute("fill", latest.b.hex);
+    feedDot.setAttribute("cx", (540 - feedText.getComputedTextLength() / 2 - 22).toFixed(0));
+  }, 450);
+
+  var relayHolder = 0, relayNext = now0 + 1.4, prev = now0;
+  function frame(ms) {
+    var t = ms / 1000, dt = Math.min(0.1, t - prev); prev = t;
+
+    if (t >= relayNext) { relayHolder = (relayHolder + 1) % 9; relayNext = t + 1.4; done(beads[54 + relayHolder], 54 + relayHolder, t); }
+    for (var i = 0; i < 108; i++) {
+      var b = beads[i];
+      if (b.station === 6) {
+        b.lit += (((i % 9 === relayHolder) ? 1 : 0.12) - b.lit) * Math.min(1, dt * 5);
+      } else if (t >= b.next) { b.next = t + b.period; done(b, i, t); }
+      else b.lit *= Math.exp(-dt / 1.1);
+      var sw = Math.max(0, 1 - (t - b.sweepAt) / 0.5); if (t < b.sweepAt) sw = 0;
+      var k = Math.max(b.lit, sw), base = 0.3 + 0.7 * k;
+      var key = Math.round(k * 30) + "/" + Math.round(sw * 10);
+      if (key !== b.shown) {
+        b.shown = key;
+        var r = b.col[0] * base, gg = b.col[1] * base, bb = b.col[2] * base, wmix = Math.max(sw, k * k * 0.45);
+        b.dot.setAttribute("fill", "rgb(" + Math.round(r + (255 - r) * wmix) + "," + Math.round(gg + (255 - gg) * wmix) + "," + Math.round(bb + (255 - bb) * wmix) + ")");
+        b.dot.setAttribute("r", (8.5 + 4 * k).toFixed(2));
+        b.halo.setAttribute("opacity", k.toFixed(2));
+      }
+    }
+
+    // a full mala: sweep the ring, ring the bell
+    var malas = Math.floor(shlokas / 108);
+    if (malas !== lastMala) {
+      lastMala = malas;
+      for (var j = 0; j < 108; j++) beads[j].sweepAt = t + j / 108 * 1.3;
+      ripples.push({ t0: t }); ripples.push({ t0: t + 0.25 }); ripples.push({ t0: t + 0.5 });
+      nMala.classList.remove("bump"); void nMala.getBBox(); nMala.classList.add("bump");
+      omEnergy = 1;
+    }
+    if (shlokas !== lastCount) { lastCount = shlokas; nShloka.textContent = fmt.format(shlokas); nMala.textContent = fmt.format(malas); }
+
+    // petals breathe with their station's activity
+    for (var s = 0; s < 12; s++) {
+      energy[s] = Math.max(0.25, energy[s] * Math.exp(-dt / 2.2));
+      var boost = s === featured ? 0.25 : 0, q = Math.round(Math.min(1, energy[s] + boost) * 25);
+      if (q !== shownE[s]) { shownE[s] = q; petals[s].setAttribute("fill-opacity", (0.14 + 0.5 * q / 25).toFixed(2)); }
+    }
+
+    // om and aura
+    omEnergy *= Math.exp(-dt / 0.8);
+    var breath = 0.5 + 0.5 * Math.sin(t * 1.3);
+    auraC.setAttribute("opacity", (0.42 + 0.14 * breath + 0.3 * omEnergy).toFixed(3));
+    coreGlow.setAttribute("opacity", (0.35 + 0.25 * breath + 0.4 * omEnergy).toFixed(3));
+    omG.setAttribute("transform", "scale(" + (1 + 0.025 * breath + 0.07 * omEnergy).toFixed(4) + ")");
+
+    // canvas
+    ctx.clearRect(0, 0, 1080, 1920);
+    ctx.globalCompositeOperation = "lighter";
+    for (var n = 0; n < embers.length; n++) {
+      var em = embers[n];
+      em.y -= em.v * dt; if (em.y < -10) { em.y = 1930; em.x = Math.random() * 1080; }
+      var ex = em.x + Math.sin(t * 0.9 + em.ph) * 26;
+      ctx.globalAlpha = em.a * (0.6 + 0.4 * Math.sin(t * 3 + em.ph));
+      ctx.fillStyle = "#ffc46b";
+      ctx.beginPath(); ctx.arc(ex, em.y, em.r, 0, 6.2832); ctx.fill();
+    }
+    for (n = ripples.length - 1; n >= 0; n--) {
+      var u = (t - ripples[n].t0) / 2.2;
+      if (u > 1) { ripples.splice(n, 1); continue; }
+      if (u < 0) continue;
+      ctx.globalAlpha = (1 - u) * 0.75; ctx.strokeStyle = "#ffe2a0"; ctx.lineWidth = 5 * (1 - u) + 1;
+      ctx.beginPath(); ctx.arc(CX, CY, 150 + 420 * (1 - (1 - u) * (1 - u)), 0, 6.2832); ctx.stroke();
+    }
+    ctx.lineCap = "round";
+    for (n = sparks.length - 1; n >= 0; n--) {
+      var sp = sparks[n], uu = (t - sp.t0) / 1.25;
+      if (uu >= 1) { sparks.splice(n, 1); omEnergy = Math.min(1, omEnergy + 0.07); continue; }
+      var head = sparkPos(sp, uu), tail = sparkPos(sp, Math.max(0, uu - 0.16));
+      ctx.globalAlpha = 0.55; ctx.strokeStyle = sp.hex; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.moveTo(tail[0], tail[1]); ctx.lineTo(head[0], head[1]); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.fillStyle = "#fff";
+      ctx.beginPath(); ctx.arc(head[0], head[1], 4.5, 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 0.5; ctx.fillStyle = sp.hex;
+      ctx.beginPath(); ctx.arc(head[0], head[1], 10, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

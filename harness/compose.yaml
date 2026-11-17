@@ -1,0 +1,29 @@
+services:
+  akhand:
+    build: .
+    image: akhand-108:latest
+    container_name: akhand
+    restart: unless-stopped
+    mem_limit: 512m
+    cpus: 0.5
+    stop_grace_period: 20s
+    env_file: .env
+    environment:
+      DATA_DIR: /data
+      LIBRARY_PATH: /app/library/library.json
+      STATUS_EXPORT_PATH: /export/status.json
+      CONTROL_PATH: /export/control.json
+    volumes:
+      - akhand-data:/data
+      - ../library:/app/library:ro
+      # A watcher (see hermes/) reads status.json and writes control.json here. The host dir must be writable by
+      # uid 10001. Set EXPORT_DIR in .env to move it, e.g. EXPORT_DIR=./export
+      - ${EXPORT_DIR:-/var/lib/hermes/data/akhand}:/export
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  akhand-data:

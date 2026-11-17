@@ -1,0 +1,17 @@
+{
+  "name": "akhand-108-relay",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "typecheck": "tsc --noEmit",
+    "feed": "node tools/feed.mjs"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261110.1",
+    "playwright": "^1.50.0",
+    "typescript": "^5.6.0",
+    "wrangler": "^4.0.0",
+    "ws": "^8.18.0"
+  }
+}

@@ -1,0 +1,726 @@
+{
+ "version": 1,
+ "built_at": "2026-11-13T00:00:00Z",
+ "stations": [
+  {
+   "index": 0,
+   "id": "shiv-japa",
+   "label_hi": "Shiv Japa",
+   "label_en": "Shiv Japa",
+   "mode": "japa",
+   "works": [
+    {
+     "id": "om-namah-shivaya",
+     "title_hi": "Om Namah Shivaya",
+     "title_en": "Om Namah Shivaya",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ नमः शिवाय"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 1,
+   "id": "shiv-stuti",
+   "label_hi": "Shiv Stuti",
+   "label_en": "Shiv Stuti",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "rudrashtakam",
+     "title_hi": "Rudrashtakam",
+     "title_en": "Rudrashtakam",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "नमामीशमीशान निर्वाणरूपं विभुं व्यापकं ब्रह्मवेदस्वरूपम्।\nनिजं निर्गुणं निर्विकल्पं निरीहं चिदाकाशमाकाशवासं भजेऽहम्॥"
+      },
+      {
+       "n": 2,
+       "text": "निराकारमोङ्कारमूलं तुरीयं गिरा ज्ञान गोतीतमीशं गिरीशम्।\nकरालं महाकाल कालं कृपालं गुणागार संसारपारं नतोऽहम्॥"
+      },
+      {
+       "n": 3,
+       "text": "तुषाराद्रि संकाश गौरं गभीरं मनोभूत कोटि प्रभा श्री शरीरम्।\nस्फुरन्मौलि कल्लोलिनी चारु गङ्गा लसद्भालबालेन्दु कण्ठे भुजङ्गा॥"
+      },
+      {
+       "n": 4,
+       "text": "चलत्कुण्डलं भ्रू सुनेत्रं विशालं प्रसन्नाननं नीलकण्ठं दयालम्।\nमृगाधीश चर्माम्बरं मुण्डमालं प्रियं शङ्करं सर्वनाथं भजामि॥"
+      }
+     ]
+    },
+    {
+     "id": "shiv-tandav",
+     "title_hi": "Shiv Tandav Stotram",
+     "title_en": "Shiv Tandav Stotram",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "जटाटवीगलज्जलप्रवाहपावितस्थले गलेऽवलम्ब्य लम्बितां भुजङ्गतुङ्गमालिकाम्।\nडमड्डमड्डमड्डमन्निनादवड्डमर्वयं चकार चण्डताण्डवं तनोतु नः शिवः शिवम्॥"
+      },
+      {
+       "n": 2,
+       "text": "जटाकटाहसम्भ्रमभ्रमन्निलिम्पनिर्झरी विलोलवीचिवल्लरीविराजमानमूर्धनि।\nधगद्धगद्धगज्ज्वलल्ललाटपट्टपावके किशोरचन्द्रशेखरे रतिः प्रतिक्षणं मम॥"
+      },
+      {
+       "n": 3,
+       "text": "धराधरेन्द्रनन्दिनीविलासबन्धुबन्धुर स्फुरद्दिगन्तसन्ततिप्रमोदमानमानसे।\nकृपाकटाक्षधोरणीनिरुद्धदुर्धरापदि क्वचिद्दिगम्बरे मनो विनोदमेतु वस्तुनि॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 2,
+   "id": "mrityunjaya",
+   "label_hi": "Mrityunjaya",
+   "label_en": "Mrityunjaya",
+   "mode": "japa",
+   "works": [
+    {
+     "id": "mahamrityunjaya",
+     "title_hi": "Mahamrityunjaya Mantra",
+     "title_en": "Mahamrityunjaya Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ त्र्यम्बकं यजामहे सुगन्धिं पुष्टिवर्धनम्।\nउर्वारुकमिव बन्धनान्मृत्योर्मुक्षीय माऽमृतात्॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 3,
+   "id": "saptashati",
+   "label_hi": "Saptashati",
+   "label_en": "Saptashati",
+   "mode": "relay",
+   "works": [
+    {
+     "id": "devi-stuti",
+     "title_hi": "Devi Stuti",
+     "title_en": "Devi Stuti",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "या देवी सर्वभूतेषु चेतनारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 2,
+       "text": "या देवी सर्वभूतेषु बुद्धिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 3,
+       "text": "या देवी सर्वभूतेषु निद्रारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 4,
+       "text": "या देवी सर्वभूतेषु क्षुधारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 5,
+       "text": "या देवी सर्वभूतेषु छायारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 6,
+       "text": "या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 7,
+       "text": "या देवी सर्वभूतेषु तृष्णारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 8,
+       "text": "या देवी सर्वभूतेषु क्षान्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 9,
+       "text": "या देवी सर्वभूतेषु जातिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 10,
+       "text": "या देवी सर्वभूतेषु लज्जारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 11,
+       "text": "या देवी सर्वभूतेषु शान्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 12,
+       "text": "या देवी सर्वभूतेषु श्रद्धारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 13,
+       "text": "या देवी सर्वभूतेषु कान्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 14,
+       "text": "या देवी सर्वभूतेषु लक्ष्मीरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 15,
+       "text": "या देवी सर्वभूतेषु वृत्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 16,
+       "text": "या देवी सर्वभूतेषु स्मृतिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 17,
+       "text": "या देवी सर्वभूतेषु दयारूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 18,
+       "text": "या देवी सर्वभूतेषु तुष्टिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 19,
+       "text": "या देवी सर्वभूतेषु मातृरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      },
+      {
+       "n": 20,
+       "text": "या देवी सर्वभूतेषु भ्रान्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 4,
+   "id": "durga",
+   "label_hi": "Durga",
+   "label_en": "Durga",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "durga-chalisa",
+     "title_hi": "Durga Chalisa",
+     "title_en": "Durga Chalisa",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "नमो नमो दुर्गे सुख करनी। नमो नमो अम्बे दुःख हरनी॥"
+      },
+      {
+       "n": 2,
+       "text": "निराकार है ज्योति तुम्हारी। तिहूँ लोक फैली उजियारी॥"
+      },
+      {
+       "n": 3,
+       "text": "शशि ललाट मुख महाविशाला। नेत्र लाल भृकुटि विकराला॥"
+      },
+      {
+       "n": 4,
+       "text": "रूप मातु को अधिक सुहावे। दरश करत जन अति सुख पावे॥"
+      }
+     ]
+    },
+    {
+     "id": "navarna",
+     "title_hi": "Navarna Mantra",
+     "title_en": "Navarna Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ ऐं ह्रीं क्लीं चामुण्डायै विच्चे"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 5,
+   "id": "ganesh",
+   "label_hi": "Ganesh",
+   "label_en": "Ganesh",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "vakratunda",
+     "title_hi": "Vakratunda",
+     "title_en": "Vakratunda",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।\nनिर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥"
+      }
+     ]
+    },
+    {
+     "id": "ganesh-chalisa",
+     "title_hi": "Ganesh Chalisa",
+     "title_en": "Ganesh Chalisa",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "जय जय जय गणपति गणराजू। मंगल भरण करण शुभ काजू॥"
+      },
+      {
+       "n": 2,
+       "text": "जै गजबदन सदन सुखदाता। विश्व विनायक बुद्धि विधाता॥"
+      },
+      {
+       "n": 3,
+       "text": "वक्र तुण्ड शुचि शुण्ड सुहावन। तिलक त्रिपुण्ड भाल मन भावन॥"
+      },
+      {
+       "n": 4,
+       "text": "राजत मणि मुक्तन उर माला। स्वर्ण मुकुट शिर नयन विशाला॥"
+      },
+      {
+       "n": 5,
+       "text": "क्षमा करो प्रभु पूजा में क्‍ष और ज़ का अपराध॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "id": "ram",
+   "label_hi": "Ram",
+   "label_en": "Ram",
+   "mode": "relay",
+   "works": [
+    {
+     "id": "manas",
+     "title_hi": "Ramcharitmanas",
+     "title_en": "Ramcharitmanas",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई एक।"
+      },
+      {
+       "n": 2,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई दो।"
+      },
+      {
+       "n": 3,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई तीन।"
+      },
+      {
+       "n": 4,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई चार।"
+      },
+      {
+       "n": 5,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई पाँच।"
+      },
+      {
+       "n": 6,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई छह।"
+      },
+      {
+       "n": 7,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई सात।"
+      },
+      {
+       "n": 8,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई आठ।"
+      },
+      {
+       "n": 9,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई नौ।"
+      },
+      {
+       "n": 10,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई दस।"
+      },
+      {
+       "n": 11,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई ग्यारह।"
+      },
+      {
+       "n": 12,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई बारह।"
+      },
+      {
+       "n": 13,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई तेरह।"
+      },
+      {
+       "n": 14,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई चौदह।"
+      },
+      {
+       "n": 15,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई पन्द्रह।"
+      },
+      {
+       "n": 16,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई सोलह।"
+      },
+      {
+       "n": 17,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई सत्रह।"
+      },
+      {
+       "n": 18,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई अठारह।"
+      },
+      {
+       "n": 19,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई उन्नीस।"
+      },
+      {
+       "n": 20,
+       "text": "श्रीराम जय राम जय जय राम, चौपाई बीस।"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "id": "hanuman",
+   "label_hi": "Hanuman",
+   "label_en": "Hanuman",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "hanuman-chalisa",
+     "title_hi": "Hanuman Chalisa",
+     "title_en": "Hanuman Chalisa",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "जय हनुमान ज्ञान गुण सागर। जय कपीस तिहुँ लोक उजागर॥"
+      },
+      {
+       "n": 2,
+       "text": "राम दूत अतुलित बल धामा। अंजनि पुत्र पवनसुत नामा॥"
+      },
+      {
+       "n": 3,
+       "text": "महावीर विक्रम बजरङ्गी। कुमति निवार सुमति के सङ्गी॥"
+      },
+      {
+       "n": 4,
+       "text": "कञ्चन वरन विराज सुवेसा। कानन कुण्डल कुञ्चित केसा॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "id": "vishnu",
+   "label_hi": "Vishnu",
+   "label_en": "Vishnu",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "vishnu-sahasranama",
+     "title_hi": "Vishnu Sahasranama",
+     "title_en": "Vishnu Sahasranama",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "शुक्लाम्बरधरं विष्णुं शशिवर्णं चतुर्भुजम्।\nप्रसन्नवदनं ध्यायेत् सर्वविघ्नोपशान्तये॥"
+      },
+      {
+       "n": 2,
+       "text": "ॐ विश्वं विष्णुर्वषट्कारो भूतभव्यभवत्प्रभुः।\nभूतकृद्भूतभृद्भावो भूतात्मा भूतभावनः॥"
+      },
+      {
+       "n": 3,
+       "text": "पूतात्मा परमात्मा च मुक्तानां परमा गतिः।\nअव्ययः पुरुषः साक्षी क्षेत्रज्ञोऽक्षर एव च॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "id": "lakshmi",
+   "label_hi": "Lakshmi",
+   "label_en": "Lakshmi",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "sri-suktam",
+     "title_hi": "Sri Suktam",
+     "title_en": "Sri Suktam",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ हिरण्यवर्णां हरिणीं सुवर्णरजतस्रजाम्।\nचन्द्रां हिरण्मयीं लक्ष्मीं जातवेदो म आवह॥"
+      },
+      {
+       "n": 2,
+       "text": "तां म आवह जातवेदो लक्ष्मीमनपगामिनीम्।\nयस्यां हिरण्यं विन्देयं गामश्वं पुरुषानहम्॥"
+      },
+      {
+       "n": 3,
+       "text": "अश्वपूर्वां रथमध्यां हस्तिनादप्रबोधिनीम्।\nश्रियं देवीमुपह्वये श्रीर्मा देवीर्जुषताम्॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "id": "surya",
+   "label_hi": "Surya",
+   "label_en": "Surya",
+   "mode": "parallel",
+   "works": [
+    {
+     "id": "gayatri",
+     "title_hi": "Gayatri Mantra",
+     "title_en": "Gayatri Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ भूर्भुवः स्वः। तत्सवितुर्वरेण्यं भर्गो देवस्य धीमहि। धियो यो नः प्रचोदयात्॥"
+      }
+     ]
+    },
+    {
+     "id": "aditya-hridayam",
+     "title_hi": "Aditya Hridayam",
+     "title_en": "Aditya Hridayam",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": null,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ततो युद्धपरिश्रान्तं समरे चिन्तया स्थितम्।\nरावणं चाग्रतो दृष्ट्वा युद्धाय समुपस्थितम्॥"
+      },
+      {
+       "n": 2,
+       "text": "दैवतैश्च समागम्य द्रष्टुमभ्यागतो रणम्।\nउपागम्याब्रवीद् राममगस्त्यो भगवांस्तदा॥"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "id": "navagraha",
+   "label_hi": "Navagraha",
+   "label_en": "Navagraha",
+   "mode": "japa-per-seat",
+   "works": [
+    {
+     "id": "graha-surya",
+     "title_hi": "Surya Mantra",
+     "title_en": "Surya Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 0,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ घृणिः सूर्याय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-chandra",
+     "title_hi": "Chandra Mantra",
+     "title_en": "Chandra Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 1,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ सों सोमाय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-mangal",
+     "title_hi": "Mangal Mantra",
+     "title_en": "Mangal Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 2,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ अं अङ्गारकाय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-budh",
+     "title_hi": "Budh Mantra",
+     "title_en": "Budh Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 3,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ बुं बुधाय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-guru",
+     "title_hi": "Guru Mantra",
+     "title_en": "Guru Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 4,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ बृं बृहस्पतये नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-shukra",
+     "title_hi": "Shukra Mantra",
+     "title_en": "Shukra Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 5,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ शुं शुक्राय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-shani",
+     "title_hi": "Shani Mantra",
+     "title_en": "Shani Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 6,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ शं शनैश्चराय नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-rahu",
+     "title_hi": "Rahu Mantra",
+     "title_en": "Rahu Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 7,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ रां राहवे नमः"
+      }
+     ]
+    },
+    {
+     "id": "graha-ketu",
+     "title_hi": "Ketu Mantra",
+     "title_en": "Ketu Mantra",
+     "source_url": "https://example.invalid/fixture",
+     "source_name": "fixture",
+     "seat": 8,
+     "verses": [
+      {
+       "n": 1,
+       "text": "ॐ कें केतवे नमः"
+      }
+     ]
+    }
+   ]
+  }
+ ],
+ "gathering": {
+  "ganesh": {
+   "title_en": "Ganesh invocation",
+   "source_url": "https://example.invalid/fixture",
+   "verses": [
+    {
+     "n": 1,
+     "text": "ॐ गणानां त्वा गणपतिं हवामहे कविं कवीनामुपमश्रवस्तमम्।"
+    },
+    {
+     "n": 2,
+     "text": "वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ।\nनिर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा॥"
+    }
+   ]
+  },
+  "shiv": {
+   "title_en": "Shiv vandana",
+   "source_url": "https://example.invalid/fixture",
+   "verses": [
+    {
+     "n": 1,
+     "text": "कर्पूरगौरं करुणावतारं संसारसारं भुजगेन्द्रहारम्।\nसदा वसन्तं हृदयारविन्दे भवं भवानीसहितं नमामि॥"
+    },
+    {
+     "n": 2,
+     "text": "ॐ नमः शिवाय॥"
+    }
+   ]
+  },
+  "durga": {
+   "title_en": "Durga vandana",
+   "source_url": "https://example.invalid/fixture",
+   "verses": [
+    {
+     "n": 1,
+     "text": "सर्वमङ्गलमाङ्गल्ये शिवे सर्वार्थसाधिके।\nशरण्ये त्र्यम्बके गौरि नारायणि नमोऽस्तु ते॥"
+    },
+    {
+     "n": 2,
+     "text": "या देवी सर्वभूतेषु शक्तिरूपेण संस्थिता।\nनमस्तस्यै नमस्तस्यै नमस्तस्यै नमो नमः॥"
+    }
+   ]
+  }
+ }
+}

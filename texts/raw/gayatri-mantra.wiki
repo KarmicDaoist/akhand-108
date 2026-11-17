@@ -1,0 +1,20 @@
+{{header
+ | title      =  {{PAGENAME}}
+ | author     = 
+ | translator = 
+ | section    =
+ | previous   = 
+ | next       = 
+ | year       = 
+ | notes      = [[w:{{PAGENAME}}|{{PAGENAME}}]]
+}}
+<poem>
+
+ॐ भूर्भुवः स्वः
+तत्सवितुर्वरेण्यम्
+भर्गो देवस्य धीमहि।
+धियो यो नः प्रचोदयात्॥
+</poem>
+
+[[वर्गः:स्तोत्राणि]]
+[[वर्गः:स्तोत्रसाहित्यम्]]

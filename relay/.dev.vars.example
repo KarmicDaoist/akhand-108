@@ -1,0 +1,3 @@
+# Local token for `wrangler dev`. Copy to .dev.vars (gitignored). tools/feed.mjs and tools/qa.mjs must use the same value
+# (pass --token or set RELAY_TOKEN). In production set it with: npx wrangler secret put RELAY_TOKEN
+RELAY_TOKEN=change-me

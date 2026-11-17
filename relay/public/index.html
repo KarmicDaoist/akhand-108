@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akhand 108: 108 pandit agents praying 24/7 for the moksha of Mehul</title>
+<meta name="description" content="108 pandit agents praying 24/7 for the moksha of Mehul: AI agents reciting Hindu prayers around the clock, live. Watch the mala turn, bead by bead, and see when they rest.">
+<meta name="theme-color" content="#1a0716">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://akhand-108.tech-inkosei.workers.dev/">
+<meta property="og:site_name" content="Akhand 108">
+<meta property="og:title" content="Akhand 108: 108 pandit agents praying 24/7 for the moksha of Mehul">
+<meta property="og:description" content="AI agents reciting Hindu prayers around the clock, live. Watch the mala turn, bead by bead.">
+<meta property="og:image" content="https://akhand-108.tech-inkosei.workers.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A mala of 108 glowing beads around the Om symbol, with the words Akhand 108 and 108 pandit agents praying 24/7 for the moksha of Mehul">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Akhand 108: 108 pandit agents praying 24/7 for the moksha of Mehul">
+<meta name="twitter:description" content="AI agents reciting Hindu prayers around the clock, live.">
+<meta name="twitter:image" content="https://akhand-108.tech-inkosei.workers.dev/og.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Tiro+Devanagari+Sanskrit&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; background: #0c0410; overflow: hidden; }
+  body { display: grid; place-items: center; }
+  #frame {
+    position: relative;
+    width: min(100vw, calc(100vh * 9 / 16));
+    width: min(100vw, calc(100dvh * 9 / 16));
+    aspect-ratio: 9 / 16;
+  }
+  #frame svg, #frame canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  #stage { overflow: visible; }
+  #fx { pointer-events: none; }
+  /* Desktop: a centred, framed card on a matching glow instead of bars. */
+  @media (min-width: 700px) and (min-aspect-ratio: 1 / 1) {
+    body { background: radial-gradient(ellipse 70% 80% at 50% 42%, #4a1410 0%, #260b16 45%, #0c0410 100%); }
+    #frame {
+      width: min(100vw, calc((100vh - 48px) * 9 / 16));
+      width: min(100vw, calc((100dvh - 48px) * 9 / 16));
+      overflow: hidden; border-radius: 28px;
+      box-shadow: 0 0 0 1px rgba(255, 210, 122, 0.22), 0 24px 90px rgba(255, 120, 40, 0.18), 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+  }
+  .dev { font-family: "Tiro Devanagari Sanskrit", "Nirmala UI", "Noto Serif Devanagari", "Noto Sans Devanagari", serif; }
+  .lat { font-family: "Cormorant Garamond", Georgia, serif; font-feature-settings: "lnum" 1; font-variant-numeric: lining-nums; }
+  .caps { letter-spacing: 0.3em; }
+  #verse, #feed, #sub { transition: opacity 0.5s ease; }
+  .spin { transform-box: fill-box; transform-origin: center; animation: spin 140s linear infinite; }
+  .spin.rev { animation-duration: 90s; animation-direction: reverse; }
+  .spin.slow { animation-duration: 260s; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #nMala.bump { animation: bump 0.9s ease-out; transform-box: fill-box; transform-origin: center; }
+  @keyframes bump { 0% { transform: scale(1); fill: #fff; } 25% { transform: scale(1.22); fill: #ffd27a; } 100% { transform: scale(1); } }
+  .still .spin, .still #nMala.bump { animation: none; }
+  @media (prefers-reduced-motion: reduce) { .spin, #nMala.bump { animation: none; } #verse, #feed, #sub { transition: none; } }
+  #frame { container-type: inline-size; }
+  #lblsvg { pointer-events: none; filter: drop-shadow(0 0 2px rgba(34, 6, 12, 0.95)) drop-shadow(0 0 6px rgba(34, 6, 12, 0.65)); }
+  #sndbar { position: absolute; left: 0; right: 0; bottom: 2px; z-index: 3; display: flex; justify-content: center; align-items: center; gap: 12px; }
+  #sndbar button { all: unset; box-sizing: border-box; position: relative; cursor: pointer; display: flex; align-items: center; gap: 7px; height: 44px; min-width: 44px; padding: 0 15px; white-space: nowrap;
+    color: #ffd27a; font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: max(11px, 2.7cqw); line-height: 1; letter-spacing: 0.14em; -webkit-tap-highlight-color: transparent; }
+  #sndbar button::before { content: ""; position: absolute; inset: 6px 0; border-radius: 999px; background: rgba(12, 4, 16, 0.55); border: 1px solid rgba(255, 210, 122, 0.4); }
+  #sndbar button > * { position: relative; }
+  #sndbar button[hidden] { display: none; }
+  #sndbar button[aria-pressed="true"]::before { border-color: rgba(255, 210, 122, 0.85); background: rgba(74, 20, 16, 0.6); }
+  #sndbar button[aria-pressed="true"] { color: #fff1d6; }
+  #sndbar button:focus-visible { outline: 2px solid #fff1d6; outline-offset: -2px; border-radius: 22px; }
+  #sndbar button:disabled { opacity: 0.5; cursor: default; }
+  @media (min-width: 700px) and (min-aspect-ratio: 1 / 1) { #sndbar { bottom: 14px; } }
+  @container (max-width: 359px) { #sndbar { bottom: 0; } }
+  #sndbar svg { position: static; width: 1.35em; height: 1.35em; flex: none; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+</style>
+</head>
+<body>
+<div id="frame">
+<svg id="stage" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid meet" role="img" aria-label="108 pandit agents praying 24/7, shown as a mala of 108 beads">
+  <defs>
+    <radialGradient id="bg" gradientUnits="userSpaceOnUse" cx="0" cy="0" r="1" gradientTransform="translate(540 768) scale(864 1536)">
+      <stop offset="0" stop-color="#7a2410"/>
+      <stop offset="0.38" stop-color="#3d0f17"/>
+      <stop offset="0.75" stop-color="#1a0716"/>
+      <stop offset="1" stop-color="#0c0410"/>
+    </radialGradient>
+    <radialGradient id="aura">
+      <stop offset="0" stop-color="#ffd27a" stop-opacity="0.9"/>
+      <stop offset="0.35" stop-color="#ff9a2e" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#ff9a2e" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="core">
+      <stop offset="0" stop-color="#fff3c9"/>
+      <stop offset="0.6" stop-color="#ffc24a"/>
+      <stop offset="1" stop-color="#e8782a"/>
+    </radialGradient>
+    <path id="ringPath" d="M 0 -497 A 497 497 0 1 1 -0.1 -497"/>
+  </defs>
+  <rect x="-3000" y="-3000" width="7080" height="7920" fill="url(#bg)"/>
+
+  <text x="540" y="72" text-anchor="middle" class="lat caps" font-size="44" font-weight="600" fill="#ffd27a">AKHAND</text>
+  <g id="sub" class="lat" text-anchor="middle" font-size="62" font-style="italic" fill="#fff1d6"><text id="sub1" x="540" y="140">108 pandit agents praying 24/7</text><text id="sub2" x="540" y="202">for the moksha of Mehul</text></g>
+  <g id="statusG">
+    <circle id="statusDot" cx="0" cy="233" r="6" fill="#ffd27a"/>
+    <text id="status" x="540" y="240" text-anchor="middle" class="lat caps" font-size="20" font-weight="600" fill="#ffb86b">CONNECTING</text>
+  </g>
+  <g id="demoBadge" display="none">
+    <rect x="40" y="44" width="150" height="56" rx="28" fill="#0c0410" fill-opacity="0.7" stroke="#ffd27a" stroke-width="2"/>
+    <text x="115" y="82" text-anchor="middle" class="lat caps" font-size="28" font-weight="600" fill="#ffd27a">DEMO</text>
+  </g>
+
+  <g transform="translate(540 804)">
+    <circle id="auraC" r="640" fill="url(#aura)" opacity="0.5"/>
+
+    <g class="spin slow" aria-hidden="true">
+      <text class="dev" font-size="23" fill="#ffd27a" fill-opacity="0.85"><textPath id="ringText" href="#ringPath"></textPath></text>
+    </g>
+    <g id="ticks" class="spin rev" aria-hidden="true"></g>
+    <circle r="398" fill="none" stroke="#ffd27a" stroke-opacity="0.5" stroke-width="1.5"/>
+
+    <g id="petals"></g>
+    <g id="innerPetals" class="spin"></g>
+
+    <circle r="150" fill="#2a0a10" stroke="#ffd27a" stroke-width="2.5"/>
+    <circle id="coreGlow" r="150" fill="url(#aura)" opacity="0.4"/>
+    <g id="omG"><text y="54" text-anchor="middle" class="dev" font-size="176" fill="url(#core)">ॐ</text></g>
+
+    <g id="halos"></g>
+    <g id="beads"></g>
+  </g>
+
+  <g id="verse" opacity="0">
+    <text id="v1" x="540" y="1380" text-anchor="middle" class="dev" font-size="54" fill="#fff6e3"></text>
+    <text id="v2" x="540" y="1452" text-anchor="middle" class="dev" font-size="54" fill="#fff6e3"></text>
+    <text id="vmeta" x="540" y="1514" text-anchor="middle" class="lat caps" font-size="24" font-weight="600" fill="#ffd27a"></text>
+  </g>
+
+  <line x1="80" y1="1566" x2="1000" y2="1566" stroke="#ffd27a" stroke-opacity="0.4"/>
+  <g class="lat" text-anchor="middle">
+    <text id="nShloka" x="220" y="1660" font-size="68" font-weight="600" fill="#fff6e3">&#8211;</text>
+    <text x="220" y="1704" class="caps" style="letter-spacing:0.24em" font-size="20" font-weight="600" fill="#ffb86b">SHLOKAS TODAY</text>
+    <line x1="400" y1="1606" x2="400" y2="1708" stroke="#ffd27a" stroke-opacity="0.4"/>
+    <text id="nMala" x="540" y="1660" font-size="68" font-weight="600" fill="#fff6e3">&#8211;</text>
+    <text x="540" y="1704" class="caps" style="letter-spacing:0.24em" font-size="20" font-weight="600" fill="#ffb86b">MALAS COMPLETE</text>
+    <line x1="680" y1="1606" x2="680" y2="1708" stroke="#ffd27a" stroke-opacity="0.4"/>
+    <text id="nDay" x="860" y="1660" font-size="68" font-weight="600" fill="#fff6e3">&#8211;</text>
+    <text id="lDay" x="860" y="1704" class="caps" style="letter-spacing:0.24em" font-size="20" font-weight="600" fill="#ffb86b">WITHOUT A BREAK</text>
+  </g>
+
+  <g id="feed">
+    <circle id="feedDot" cx="-100" cy="1753" r="7" fill="#fff"/>
+    <text id="feedText" x="540" y="1762" text-anchor="middle" class="lat caps" font-size="22" font-weight="600" fill="#fff1d6"></text>
+    <text id="feedText2" x="540" y="1764" text-anchor="middle" class="lat caps" font-size="22" font-weight="600" fill="#fff1d6"></text>
+  </g>
+</svg>
+<canvas id="fx" width="540" height="960"></canvas>
+<svg id="lblsvg" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g id="lbls" transform="translate(540 804)"></g></svg>
+<div id="sndbar" role="group" aria-label="Sound">
+  <button id="sndBtn" type="button" aria-pressed="false" aria-label="Sound">
+    <svg viewBox="0 0 16 16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6h2.6L8 3v10L4.6 10H2z" fill="currentColor" fill-opacity="0.25"/><path d="M10.5 5.5a3.5 3.5 0 0 1 0 5M12.3 3.7a6 6 0 0 1 0 8.6"/></svg>
+    <span id="sndState">TAP TO HEAR THE PRAYER</span>
+  </button>
+  <button id="chantBtn" type="button" aria-pressed="true" aria-label="Chant" hidden><span id="chantState">CHANT ON</span></button>
+</div>
+</div>
+<p class="sr" id="live-status" aria-live="polite"></p>
+<noscript><p class="sr">Akhand 108 shows 108 pandit agents praying 24/7 for the moksha of Mehul, reciting Hindu prayers live. JavaScript is needed to watch.</p></noscript>
+
+<script>
+/* Akhand 108 sound: Web Audio only, no files. Driven by the page's real events:
+   window.__snd.note/bell/mode/state/verse are called from the page script below. */
+(function () {
+  "use strict";
+  var AC = window.AudioContext || window.webkitAudioContext;
+  var TONIC = 138.59;                           // C#3
+  var RATIO = [1, 9 / 8, 5 / 4, 3 / 2, 5 / 3];  // Sa Re Ga Pa Dha, just intonation
+  var STATION_POS = [3, 5, 7, 2, 4, 8, 6, 9, 10, 11, 1, 12]; // station -> step on a 3-octave pentatonic ladder
+  var CEIL = 0.8;                               // hard ceiling after the compressor (-1.9 dBFS)
+  var PULSE = 0.14, QUEUE_MAX = 8, VOICE_MAX = 12, IDLE_MS = 2500, FADE_OUT = 2.5, FADE_IN = 1.8;
+  function scaleHz(pos) { return TONIC * Math.pow(2, Math.floor(pos / 5)) * RATIO[pos % 5]; }
+  // tanpura cycle: Pa (low), Sa, Sa, Sa (lower octave)
+  var CYCLE = [{ f: TONIC * 0.75, v: 0.85, gap: 1.25 }, { f: TONIC, v: 1, gap: 1.25 }, { f: TONIC, v: 0.9, gap: 1.25 }, { f: TONIC * 0.5, v: 1.1, gap: 1.6 }];
+
+  // ---------- synthesis (shared by the live page and the offline render) ----------
+  function impulse(ctx, secs) {
+    var sr = ctx.sampleRate, n = Math.floor(sr * secs), b = ctx.createBuffer(2, n, sr), seed = 12345;
+    for (var c = 0; c < 2; c++) {
+      var d = b.getChannelData(c), lp = 0;
+      for (var i = 0; i < n; i++) {
+        seed = (seed * 1664525 + 1013904223) >>> 0;
+        var r = (seed / 4294967296) * 2 - 1;
+        lp += (r - lp) * (0.55 - 0.4 * i / n);       // darker as it decays
+        d[i] = lp * Math.pow(1 - i / n, 2.6) * 1.4;
+      }
+    }
+    return b;
+  }
+  function makeGraph(ctx) {
+    var g = {};
+    g.live = ctx.createGain(); g.live.gain.value = 0;       // activity fade (real events only)
+    g.master = ctx.createGain(); g.master.gain.value = 0;   // user on/off
+    g.comp = ctx.createDynamicsCompressor();
+    g.comp.threshold.value = -14; g.comp.knee.value = 10; g.comp.ratio.value = 4; g.comp.attack.value = 0.01; g.comp.release.value = 0.35;
+    g.shaper = ctx.createWaveShaper();
+    var curve = new Float32Array(2049);
+    for (var i = 0; i < curve.length; i++) { var x = (i / 1024 - 1) * 2; curve[i] = CEIL * Math.tanh(x / CEIL); }
+    g.shaper.curve = curve;
+    g.drone = ctx.createGain(); g.drone.gain.value = 1;
+    g.notes = ctx.createGain(); g.duck = ctx.createGain();
+    g.bells = ctx.createGain();
+    g.send = ctx.createGain();
+    g.conv = ctx.createConvolver(); g.conv.buffer = impulse(ctx, 3.2);
+    g.wet = ctx.createGain(); g.wet.gain.value = 0.42;
+    var dSend = ctx.createGain(); dSend.gain.value = 0.22;
+    var nSend = ctx.createGain(); nSend.gain.value = 0.5;
+    var bSend = ctx.createGain(); bSend.gain.value = 0.55;
+    g.drone.connect(g.live); g.drone.connect(dSend); dSend.connect(g.send);
+    g.notes.connect(g.duck); g.duck.connect(g.live); g.duck.connect(nSend); nSend.connect(g.send);
+    g.bells.connect(g.live); g.bells.connect(bSend); bSend.connect(g.send);
+    g.send.connect(g.conv); g.conv.connect(g.wet); g.wet.connect(g.live);
+    g.live.connect(g.master); g.master.connect(g.comp); g.comp.connect(g.shaper); g.shaper.connect(ctx.destination);
+    return g;
+  }
+  function tone(ctx, dest, t, f, peak, attack, tau, stop, cents) {
+    var o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = "sine"; o.frequency.value = f; if (cents) o.detune.value = cents;
+    g.gain.setValueAtTime(0, t);
+    g.gain.linearRampToValueAtTime(peak, t + attack);
+    g.gain.setTargetAtTime(0, t + attack, tau);
+    o.connect(g); g.connect(dest); o.start(t); o.stop(t + stop);
+    return o;
+  }
+  function pluck(ctx, bus, t, f, vel) {
+    var lp = ctx.createBiquadFilter(), out = ctx.createGain();
+    lp.type = "lowpass"; lp.Q.value = 0.6;
+    lp.frequency.setValueAtTime(3000, t); lp.frequency.exponentialRampToValueAtTime(650, t + 3.2);
+    out.gain.value = vel * 0.045;
+    lp.connect(out); out.connect(bus);
+    for (var k = 1; k <= 9; k++) {
+      var amp = 1 / Math.pow(k, 1.05) * (k >= 3 && k <= 6 ? 1.25 : 1);   // a little jawari bloom in the mids
+      var cents = (Math.random() * 2 - 1) * 4;
+      tone(ctx, lp, t, f * k, amp, 0.01, 1.7 / (1 + 0.32 * (k - 1)), 8, cents);
+      if (k <= 2) tone(ctx, lp, t, f * k, amp * 0.55, 0.012, 1.9 / k, 8, 6 + cents);   // detuned twin: slow shimmer
+    }
+  }
+  function noteVoice(ctx, bus, t, f, pan, vel) {
+    var out = ctx.createGain(), tail = out;
+    out.gain.value = vel * 0.04;
+    if (ctx.createStereoPanner) { var p = ctx.createStereoPanner(); p.pan.value = pan; out.connect(p); tail = p; }
+    tail.connect(bus);
+    var o = tone(ctx, out, t, f, 1, 0.006, 0.42, 2.6, 0);
+    tone(ctx, out, t, f * 2, 0.3, 0.005, 0.2, 1.4, 3);
+    tone(ctx, out, t, f * 3, 0.1, 0.005, 0.12, 1.0, -3);
+    tone(ctx, out, t, f * 2.76, 0.05, 0.004, 0.07, 0.7, 0);
+    return o;
+  }
+  var BELL = [[0.5, 0.5], [1, 1], [1.183, 0.55], [1.506, 0.4], [2, 0.5], [2.514, 0.25], [2.662, 0.2], [3.011, 0.12], [4.166, 0.08]];
+  function bell(ctx, bus, t, f, vel, secs) {
+    var out = ctx.createGain(); out.gain.value = vel * 0.17; out.connect(bus);
+    for (var i = 0; i < BELL.length; i++) {
+      var r = BELL[i][0], a = BELL[i][1], d = secs / (0.8 + 0.45 * r);
+      for (var j = 0; j < (r === 1 || r === 0.5 ? 2 : 1); j++) {   // beating pair on hum and prime
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = "sine"; o.frequency.value = f * r * (j ? 1.0035 : 1);
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.linearRampToValueAtTime(a * (j ? 0.6 : 1), t + 0.004);
+        g.gain.exponentialRampToValueAtTime(0.0003, t + d);
+        o.connect(g); g.connect(out); o.start(t); o.stop(t + d + 0.05);
+      }
+    }
+  }
+
+  // ---------- live engine ----------
+  var E = {
+    ctx: null, g: null, an: null, on: false, chant: true, view: "connecting", stale: false,
+    lastEv: 0, lastState: 0, queue: [], nextSlot: 0, grid0: 0, stamps: [], voices: 0,
+    nextPluck: 0, pluckIdx: 0, nextGBell: 0, active: false, speaking: false, hi: null, timer: 0, offTimer: 0, droneRamp: false
+  };
+  function now() { return performance.now(); }
+  function ramp(param, to, secs) {
+    var t = E.ctx.currentTime;
+    param.cancelScheduledValues(t);
+    param.setValueAtTime(param.value, t);
+    param.linearRampToValueAtTime(to, t + secs);
+  }
+  function ensureCtx() {
+    if (E.ctx) return true;
+    if (!AC) return false;
+    try { E.ctx = new AC(); } catch (e) { return false; }
+    E.g = makeGraph(E.ctx);
+    E.an = E.ctx.createAnalyser(); E.an.fftSize = 2048; E.g.shaper.connect(E.an);
+    E.grid0 = E.ctx.currentTime;
+    E.ctx.onstatechange = function () { if (E.on && !document.hidden && E.ctx.state !== "running") { try { E.ctx.resume(); } catch (e) {} } };
+    try { var b = E.ctx.createBuffer(1, 1, 22050), s = E.ctx.createBufferSource(); s.buffer = b; s.connect(E.ctx.destination); s.start(0); } catch (e) {}  // iOS unlock
+    return true;
+  }
+  function wantActive() {
+    if (!E.on || document.hidden || E.stale) return false;
+    var n = now();
+    if (E.view === "live") return n - E.lastEv < IDLE_MS;
+    if (E.view === "gathering") return n - E.lastState < 12000;
+    return false;
+  }
+  function tick() {
+    if (!E.ctx || !E.on) return;
+    var ctx = E.ctx, t = ctx.currentTime, want = wantActive();
+    if (want !== E.active) {
+      E.active = want;
+      ramp(E.g.live.gain, want ? 1 : 0, want ? FADE_IN : FADE_OUT);
+      if (want) { E.nextPluck = t + 0.05; E.nextGBell = t + 3; }
+      else { E.queue.length = 0; cancelSpeech(); }
+    }
+    if (!E.active) return;
+    var dTarget = E.view === "gathering" ? 1.3 : 1;
+    if (!E.droneRamp && Math.abs(E.g.drone.gain.value - dTarget) > 0.01) { E.droneRamp = true; ramp(E.g.drone.gain, dTarget, 2); setTimeout(function () { E.droneRamp = false; }, 2100); }
+    while (E.nextPluck < t + 0.4) {            // tanpura plucks, scheduled slightly ahead
+      var c = CYCLE[E.pluckIdx++ % 4];
+      pluck(ctx, E.g.drone, E.nextPluck, c.f, c.v);
+      E.nextPluck += c.gap + (Math.random() - 0.5) * 0.05;
+    }
+    while (E.queue.length) {                   // notes: at most one per pulse slot
+      var slot = Math.max(E.nextSlot, t + 0.01);
+      slot = E.grid0 + Math.ceil((slot - E.grid0) / PULSE - 1e-6) * PULSE;
+      if (slot > t + 0.2) break;
+      var ev = E.queue.shift();
+      E.nextSlot = slot + PULSE;
+      if (E.voices >= VOICE_MAX) continue;
+      E.stamps.push(slot);
+      while (E.stamps.length && E.stamps[0] < slot - 1) E.stamps.shift();
+      var vel = (1 / (1 + 0.1 * E.stamps.length)) * (0.9 + Math.random() * 0.2);
+      var o = noteVoice(ctx, E.g.notes, slot + (Math.random() - 0.5) * 0.02, scaleHz(STATION_POS[ev.s]), ev.pan, vel);
+      E.voices++; o.onended = function () { E.voices--; };
+    }
+    if (E.view === "gathering" && t > E.nextGBell) { bell(ctx, E.g.bells, t + 0.05, TONIC * 2, 0.45, 5); E.nextGBell = t + 4.5 + Math.random(); }
+  }
+
+  var api = {
+    note: function (i) {
+      if (E.view !== "resting") E.lastEv = now();
+      if (!E.on || !E.active || !E.ctx) return;
+      var g = Math.floor(i / 9), w = i % 9, deg = g * 30 + 3 + w * 3;
+      E.queue.push({ s: g % 12, pan: Math.sin(deg * Math.PI / 180) * 0.7 });
+      while (E.queue.length > QUEUE_MAX) E.queue.splice(Math.floor(Math.random() * E.queue.length), 1);
+    },
+    bell: function () { if (E.on && E.active && E.ctx) bell(E.ctx, E.g.bells, E.ctx.currentTime + 0.03, TONIC * 4, 1, 6); },
+    mode: function (v, stale) { E.view = v; E.stale = !!stale; if (v === "resting" || stale) cancelSpeech(); tick(); },
+    state: function () { E.lastState = now(); },
+    pulse: function () { E.lastEv = now(); },
+    verse: function (text) { speak(text); },
+    ctx: function () { return E.ctx; }, analyser: function () { return E.an; }, isOn: function () { return E.on; }, isActive: function () { return E.active; }
+  };
+  window.__snd = api;
+
+  // ---------- speech ----------
+  function pickVoice() {
+    var vs = [], ss = window.speechSynthesis;
+    try { vs = ss ? ss.getVoices() : []; } catch (e) {}
+    E.hi = null;
+    for (var i = 0; i < vs.length; i++) if (/^hi/i.test(vs[i].lang || "")) { E.hi = vs[i]; break; }
+    syncUi();
+  }
+  function setDuck(on) {
+    E.speaking = on;
+    if (E.ctx) { var p = E.g.duck.gain, t = E.ctx.currentTime; p.cancelScheduledValues(t); p.setValueAtTime(p.value, t); p.linearRampToValueAtTime(on ? 0.5 : 1, t + 0.4); }
+  }
+  function cancelSpeech() { try { if (window.speechSynthesis) window.speechSynthesis.cancel(); } catch (e) {} if (E.speaking) setDuck(false); }
+  function speak(text) {
+    var ss = window.speechSynthesis;
+    if (!ss || !E.hi || !E.on || !E.chant || !E.active || document.hidden || !text) return;
+    try {
+      if (ss.speaking || ss.pending) return;
+      var u = new SpeechSynthesisUtterance(text);
+      u.voice = E.hi; u.lang = E.hi.lang; u.rate = 0.8; u.pitch = 0.85; u.volume = 0.8;
+      u.onstart = function () { setDuck(true); };
+      u.onend = u.onerror = function () { setDuck(false); };
+      ss.speak(u);
+    } catch (e) {}
+  }
+  if (window.speechSynthesis) {
+    try { window.speechSynthesis.addEventListener("voiceschanged", pickVoice); } catch (e) { window.speechSynthesis.onvoiceschanged = pickVoice; }
+  }
+
+  // ---------- controls ----------
+  var btn, chantBtn, stateEl, chantEl;
+  function store(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+  function load(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+  function syncUi() {
+    if (!btn) return;
+    btn.setAttribute("aria-pressed", E.on ? "true" : "false");
+    stateEl.textContent = E.on ? "SOUND ON" : "TAP TO HEAR THE PRAYER";
+    chantBtn.hidden = !(E.on && E.hi);
+    chantBtn.setAttribute("aria-pressed", E.chant ? "true" : "false");
+    chantEl.textContent = E.chant ? "CHANT ON" : "CHANT OFF";
+  }
+  function turnOn() {
+    if (!ensureCtx()) return;
+    try { var p = E.ctx.resume(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+    clearTimeout(E.offTimer);
+    E.on = true; E.active = false;
+    ramp(E.g.master.gain, 0.9, 0.3);
+    if (!E.timer) E.timer = setInterval(tick, 60);
+    store("akhand_sound", "1"); syncUi(); tick();
+  }
+  function turnOff() {
+    E.on = false; E.active = false; E.queue.length = 0;
+    cancelSpeech();
+    if (E.ctx) {
+      ramp(E.g.master.gain, 0, 0.15);
+      ramp(E.g.live.gain, 0, 0.15);
+      E.offTimer = setTimeout(function () { if (!E.on) { try { E.ctx.suspend(); } catch (e) {} } }, 400);
+    }
+    store("akhand_sound", "0"); syncUi();
+  }
+  function init() {
+    btn = document.getElementById("sndBtn"); chantBtn = document.getElementById("chantBtn");
+    if (!btn) return;
+    stateEl = document.getElementById("sndState"); chantEl = document.getElementById("chantState");
+    if (!AC) { btn.disabled = true; stateEl.textContent = "SOUND N/A"; return; }
+    if (load("akhand_chant") === "0") E.chant = false;
+    btn.addEventListener("click", function () { if (E.on) turnOff(); else turnOn(); });
+    chantBtn.addEventListener("click", function () { E.chant = !E.chant; store("akhand_chant", E.chant ? "1" : "0"); if (!E.chant) cancelSpeech(); syncUi(); });
+    // a remembered "on" can only start after the next gesture (autoplay rules)
+    if (load("akhand_sound") === "1") {
+      var go = function (ev) {
+        ["click", "touchend", "keydown"].forEach(function (n) { document.removeEventListener(n, go, true); });
+        if (!E.on && !(ev && ev.target && btn.contains(ev.target))) turnOn();
+      };
+      ["click", "touchend", "keydown"].forEach(function (n) { document.addEventListener(n, go, true); });
+    }
+    document.addEventListener("visibilitychange", function () {
+      if (!E.ctx) return;
+      if (document.hidden) { cancelSpeech(); try { E.ctx.suspend(); } catch (e) {} }
+      else if (E.on) { try { E.ctx.resume(); } catch (e) {} }
+    });
+    pickVoice();
+    syncUi();
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init); else init();
+
+  // ---------- offline render of the same graph (QA and the sample WAV) ----------
+  api.render = function (secs) {
+    var sr = 44100, oc = new OfflineAudioContext(2, sr * secs, sr), g = makeGraph(oc), t = 0.05, i = 0, seed = 7;
+    function rnd() { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; }
+    g.live.gain.value = 1; g.master.gain.value = 0.9;
+    while (t < secs) { var c = CYCLE[i++ % 4]; pluck(oc, g.drone, t, c.f, c.v); t += c.gap; }
+    var ns = 0, st = 3, recent = [];
+    for (var s = 0.5; s < secs - 0.3; s += PULSE) {
+      if (rnd() < 0.88) {
+        st = rnd() < 0.5 ? Math.floor(rnd() * 12) : (st + (rnd() < 0.5 ? 1 : 11)) % 12;
+        recent.push(s); while (recent[0] < s - 1) recent.shift();
+        var deg = (st * 9 + Math.floor(rnd() * 9)) / 9 * 30 + 3;
+        noteVoice(oc, g.notes, s, scaleHz(STATION_POS[st]), Math.sin(deg * Math.PI / 180) * 0.7, 1 / (1 + 0.1 * recent.length));
+        ns++;
+      }
+    }
+    bell(oc, g.bells, 7, TONIC * 4, 1, 6);
+    return oc.startRendering().then(function (buf) {
+      var L = buf.getChannelData(0), R = buf.getChannelData(1), out = new Int16Array(L.length * 2);
+      for (var k = 0; k < L.length; k++) { out[2 * k] = Math.max(-1, Math.min(1, L[k])) * 32767; out[2 * k + 1] = Math.max(-1, Math.min(1, R[k])) * 32767; }
+      var bytes = new Uint8Array(out.buffer), bin = "";
+      for (var q = 0; q < bytes.length; q += 8192) bin += String.fromCharCode.apply(null, bytes.subarray(q, q + 8192));
+      return { sr: sr, notes: ns, b64: btoa(bin) };
+    });
+  };
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var NS = "http://www.w3.org/2000/svg", CX = 540, CY = 804;
+  var params = new URLSearchParams(location.search);
+  var demoParam = params.get("demo");
+  var DEMO = !!demoParam;
+  var reduceMq = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var reduce = reduceMq.matches;
+  if (reduceMq.addEventListener) reduceMq.addEventListener("change", function (e) { reduce = e.matches; });
+
+  function $(id) { return document.getElementById(id); }
+  function el(parent, name, attrs, text) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (text) e.textContent = text;
+    parent.appendChild(e);
+    return e;
+  }
+  function polar(r, deg) { var a = (deg - 90) * Math.PI / 180; return [r * Math.cos(a), r * Math.sin(a)]; }
+  function p(r, deg) { var q = polar(r, deg); return q[0].toFixed(1) + " " + q[1].toFixed(1); }
+  function rgb(hex) { return [parseInt(hex.substr(1, 2), 16), parseInt(hex.substr(3, 2), 16), parseInt(hex.substr(5, 2), 16)]; }
+  function pad3(n) { return String(n).padStart(3, "0"); }
+
+  // Station look. Order and indices follow the spec (station index 0-11).
+  var stations = [
+    { hi: "शिव जप", en: "SHIV JAPA", c: "#7cc4ff", unit: "MANTRA" },
+    { hi: "शिव स्तुति", en: "SHIV STUTI", c: "#a8dcff", unit: "SHLOKA" },
+    { hi: "मृत्युंजय", en: "MAHAMRITYUNJAYA", c: "#d2ecff", unit: "MANTRA" },
+    { hi: "सप्तशती", en: "DURGA SAPTASHATI", c: "#ff4b3a", unit: "SHLOKA" },
+    { hi: "दुर्गा", en: "DURGA", c: "#ff2e63", unit: "SHLOKA" },
+    { hi: "गणेश", en: "GANESH", c: "#ff8a1f", unit: "SHLOKA" },
+    { hi: "राम", en: "RAMCHARITMANAS", c: "#37d67a", unit: "SHLOKA" },
+    { hi: "हनुमान", en: "HANUMAN", c: "#ff6a13", unit: "SHLOKA" },
+    { hi: "विष्णु", en: "VISHNU", c: "#ffd23f", unit: "SHLOKA" },
+    { hi: "लक्ष्मी", en: "LAKSHMI", c: "#ff7ac3", unit: "SHLOKA" },
+    { hi: "सूर्य", en: "SURYA", c: "#ffb300", unit: "MANTRA" },
+    { hi: "नवग्रह", en: "NAVAGRAHA", c: "#b388ff", unit: "MANTRA" }
+  ];
+  var grahas = ["#ff7a2f", "#f4f4ff", "#ff3b30", "#35d07f", "#ffd23f", "#ffc7e8", "#5b6cff", "#9aa0b5", "#c08a5a"];
+
+  // Rotating mantra ring
+  var phrase = "ॐ नमः शिवाय  ·  ॐ दुं दुर्गायै नमः  ·  श्री राम जय राम जय जय राम  ·  ॐ गं गणपतये नमः  ·  ॐ नमो भगवते वासुदेवाय  ·  ";
+  $("ringText").textContent = phrase + phrase + phrase + phrase;
+
+  // Rotating tick ring: 108 marks
+  var ticks = $("ticks");
+  for (var k = 0; k < 108; k++) {
+    var major = k % 9 === 0, a1 = polar(major ? 456 : 462, k * 360 / 108), a2 = polar(472, k * 360 / 108);
+    el(ticks, "line", { x1: a1[0].toFixed(1), y1: a1[1].toFixed(1), x2: a2[0].toFixed(1), y2: a2[1].toFixed(1), stroke: "#ffd27a", "stroke-opacity": major ? 0.9 : 0.4, "stroke-width": major ? 2.5 : 1.2 });
+  }
+
+  // Petals
+  var petalsG = $("petals"), petals = [], energy = [], shownE = [];
+  for (var s = 0; s < 12; s++) {
+    var mid = s * 30 + 15;
+    var d = "M " + p(150, mid - 14) + " Q " + p(310, mid - 20) + " " + p(396, mid) + " Q " + p(310, mid + 20) + " " + p(150, mid + 14) + " Z";
+    petals.push(el(petalsG, "path", { d: d, fill: stations[s].c, "fill-opacity": 0.2, stroke: stations[s].c, "stroke-opacity": 0.95, "stroke-width": 2 }));
+    energy.push(0.3); shownE.push(-1);
+  }
+  for (s = 0; s < 12; s++) {
+    var lp = polar(296, s * 30 + 15);
+    el($("lbls"), "text", { x: lp[0].toFixed(1), y: (lp[1] + 10).toFixed(1), "text-anchor": "middle", class: "dev", "font-size": 29, fill: "#fff6e3" }, stations[s].hi);
+  }
+  var inner = $("innerPetals");
+  for (s = 0; s < 12; s++) {
+    var m2 = s * 30;
+    el(inner, "path", { d: "M " + p(150, m2 - 11) + " Q " + p(200, m2 - 13) + " " + p(232, m2) + " Q " + p(200, m2 + 13) + " " + p(150, m2 + 11) + " Z", fill: "#ffd27a", "fill-opacity": 0.3, stroke: "#ffd27a", "stroke-width": 1.5 });
+  }
+
+  // Beads
+  var defs = document.querySelector("defs"), beadsG = $("beads"), halosG = $("halos"), beads = [];
+  for (var i = 0; i < 108; i++) {
+    var g = Math.floor(i / 9), w = i % 9, hex = g === 11 ? grahas[w] : stations[g].c, col = rgb(hex);
+    var pos = polar(433, g * 30 + 3 + w * 3);
+    var grad = el(defs, "radialGradient", { id: "h" + i });
+    el(grad, "stop", { offset: 0, "stop-color": hex, "stop-opacity": 0.85 });
+    el(grad, "stop", { offset: 1, "stop-color": hex, "stop-opacity": 0 });
+    var halo = el(halosG, "circle", { cx: pos[0].toFixed(1), cy: pos[1].toFixed(1), r: 34, fill: "url(#h" + i + ")", opacity: 0 });
+    var dot = el(beadsG, "circle", { cx: pos[0].toFixed(1), cy: pos[1].toFixed(1), r: 8.5, stroke: hex, "stroke-opacity": 0.7, "stroke-width": 1.2 });
+    beads.push({ dot: dot, halo: halo, station: g, col: col, hex: hex, x: CX + pos[0], y: CY + pos[1], lit: 0, floor: 0, boost: 0, sweepAt: -9, shown: "" });
+  }
+
+  // Canvas effects: offering sparks, bell ripples, rising embers
+  var frameEl = $("frame"), cv = $("fx"), ctx = cv.getContext("2d");
+  var sparks = [], ripples = [], embers = [];
+  var narrow = window.innerWidth < 700;
+  var MAX_SPARKS = narrow ? 24 : 48;
+  for (var e2 = 0; e2 < (narrow ? 44 : 80); e2++) embers.push({ x: Math.random() * 1080, y: Math.random() * 1920, v: 30 + Math.random() * 70, r: 1.4 + Math.random() * 2.6, ph: Math.random() * 6.28, a: 0.25 + Math.random() * 0.55 });
+  function sizeCanvas() {
+    var r = frameEl.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var wpx = Math.max(270, Math.min(1080, Math.round(r.width * dpr)));
+    cv.width = wpx; cv.height = Math.round(wpx * 16 / 9);
+    ctx.setTransform(wpx / 1080, 0, 0, wpx / 1080, 0, 0);
+  }
+  sizeCanvas();
+  window.addEventListener("resize", function () { sizeCanvas(); if (typeof feedLast !== "undefined" && feedLast) setFeed(feedLast.text, feedLast.color); });
+  function sparkPos(sp, u) {
+    var e = u * u, mx = (sp.x + CX) / 2 + sp.px, my = (sp.y + CY) / 2 + sp.py, q = 1 - e;
+    return [q * q * sp.x + 2 * q * e * mx + e * e * CX, q * q * sp.y + 2 * q * e * my + e * e * CY];
+  }
+  function offer(b, t) {
+    var dx = CX - b.x, dy = CY - b.y, len = Math.sqrt(dx * dx + dy * dy);
+    sparks.push({ x: b.x, y: b.y, px: -dy / len * 130, py: dx / len * 130, t0: t, hex: b.hex });
+  }
+
+  // ---------- model ----------
+  var fmt = new Intl.NumberFormat("en-IN");
+  var S = {
+    state: null,        // last state message
+    offline: false,     // relay said the harness is silent
+    base: 0, extra: 0,  // today's units from state, plus batch units since
+    disp: 0, shown: -1, // smoothed counter
+    snap: true,         // next frame: do not treat counter jump as a bell
+    lastMala: 0,
+    latest: null,       // last bead that offered: {i, at}
+    voices: [], voiceIdx: -1,
+    lastSweep: -9,
+    polling: false,
+    lastMsgAt: 0
+  };
+  var view = "connecting", shownView = "", shownSig = "", omEnergy = 0, dim = 1;
+  var nowT = performance.now() / 1000;
+
+  function computeView() {
+    if (S.offline) return "resting";
+    if (!S.state) return "connecting";
+    if (S.state.mode === "gathering") return "gathering";
+    if (S.state.mode === "resting") return "resting";
+    return "live";
+  }
+  function setText(node, text) { if (node.textContent !== text) node.textContent = text; }
+
+  var subEl = $("sub"), statusEl = $("status"), statusDot = $("statusDot");
+  function placeStatusDot() { statusDot.setAttribute("cx", (540 - statusEl.getComputedTextLength() / 2 - 20).toFixed(0)); }
+
+  function applyView() {
+    var v = computeView(), st = S.state, sig = v + "|" + (st && (st.model || st.provider)) + "|" + (S.stale ? 1 : 0);
+    if (sig === shownSig) return;
+    shownSig = sig;
+    var viewChanged = v !== shownView, prevView = shownView;
+    shownView = view = v;
+    if (window.__snd) window.__snd.mode(v, !!S.stale);
+    var label, dotc = "#ffd27a";
+    if (v === "connecting") { label = "CONNECTING"; }
+    else if (v === "gathering") { label = "GATHERING  ·  SUNRISE VANDANA"; dotc = "#ffe2a0"; }
+    else if (v === "resting") { label = "RESTING"; dotc = "#8a7a86"; }
+    else {
+      label = "LIVE" + (st && st.provider && st.provider !== "none" ? "  ·  MODEL " + String(st.model || st.provider).replace(/[^a-z0-9. -]/gi, "").slice(0, 24).toUpperCase() : "");
+      dotc = "#6dff9a";
+    }
+    if (S.stale && v !== "resting") { label = "RECONNECTING"; dotc = "#ff9a2e"; }
+    if (DEMO) label = "DEMO  ·  SIMULATED";
+    setText(statusEl, label); statusDot.setAttribute("fill", dotc);
+    placeStatusDot();
+    applyFloors();
+    if (viewChanged) { feedKey = ""; verseKey = ""; }
+    $("live-status").textContent = v === "resting" ? "The pandit agents are resting." : v === "gathering" ? "The 108 pandit agents have gathered for the sunrise vandana." : v === "live" ? "Live." : "Connecting.";
+    if (prevView === "resting" && v !== "resting") { S.snap = false; }
+  }
+
+  // Bead floors: relay holders stay lit; in gathering every bead is lit.
+  function applyFloors() {
+    var st = S.state, gath = view === "gathering";
+    for (var i = 0; i < 108; i++) beads[i].floor = gath ? 0.9 : 0;
+    if (!gath && st && st.relay_holders && view === "live") {
+      for (var key in st.relay_holders) {
+        var sI = Number(key), seat = st.relay_holders[key];
+        if (sI >= 0 && sI < 12 && seat >= 0 && seat < 9) beads[sI * 9 + seat].floor = 0.8;
+      }
+    }
+  }
+
+  function lightBead(i, units, t) {
+    var b = beads[i];
+    if (!b) return;
+    b.lit = 1;
+    b.boost = Math.min(1, (units - 1) / 8);
+    energy[b.station] = Math.min(1, energy[b.station] + 0.22);
+    S.latest = { i: i, at: t };
+    if (window.__snd) window.__snd.note(i, units);
+    if (reduce) { omEnergy = Math.min(1, omEnergy + 0.03); return; }
+    if (!document.hidden && sparks.length < MAX_SPARKS) offer(b, t);
+  }
+
+  // ---------- message handling ----------
+  function handle(raw) {
+    var m = raw;
+    if (typeof raw === "string") { try { m = JSON.parse(raw); } catch (e) { return; } }
+    if (!m || typeof m !== "object") return;
+    S.lastMsgAt = Date.now();
+    if (S.stale) { S.stale = false; applyView(); }
+    var t = performance.now() / 1000;
+    if (m.t === "batch") {
+      if (!Array.isArray(m.ev)) return;
+      S.offline = false;
+      var add = 0;
+      for (var n = 0; n < m.ev.length; n++) {
+        var pr = m.ev[n];
+        if (!Array.isArray(pr) || (pr[0] | 0) !== pr[0] || pr[0] < 0 || pr[0] > 107) continue;
+        var u = Math.max(1, Math.min(1000, Number(pr[1]) || 1));
+        add += u;
+        if (view !== "resting") lightBead(pr[0], u, t);
+      }
+      S.extra += add;
+      if (add && window.__snd) window.__snd.pulse();
+      applyView();
+    } else if (m.t === "state") {
+      onState(m);
+    } else if (m.t === "offline") {
+      if (m.last && m.last.t === "state") onState(m.last);
+      S.offline = true;
+      S.offlineSince = m.since;
+      applyView();
+      renderStatic();
+    }
+  }
+
+  function onState(st) {
+    if (!st || !st.today || typeof st.today.units !== "number") return;
+    var prev = S.state;
+    S.state = st;
+    if (window.__snd) window.__snd.state();
+    S.offline = false;
+    var target = st.today.units;
+    var rolled = !prev || st.day !== prev.day || target + 20000 < S.disp;
+    S.base = target; S.extra = 0;
+    if (rolled) { S.disp = target; S.snap = true; }
+    if (prev === null && !DEMO) S.snap = true;
+    if (S.polling && prev && st.stations) {
+      for (var i = 0; i < 12 && i < st.stations.length; i++) {
+        var dlt = (st.stations[i].units_today || 0) - ((prev.stations && prev.stations[i] && prev.stations[i].units_today) || 0);
+        if (dlt > 0) energy[i] = Math.min(1, energy[i] + Math.min(0.6, dlt / 40));
+      }
+    }
+    // voices
+    S.voices = (st.voices || []).filter(function (v) { return v && typeof v.text === "string" && v.text.trim(); });
+    // labels
+    var streak = st.streak_days | 0;
+    if (streak > 0) { setText($("nDay"), "Day " + fmt.format(streak)); setText($("lDay"), "WITHOUT A BREAK"); }
+    else { setText($("nDay"), "Day " + fmt.format(st.day | 0)); setText($("lDay"), "OF PRAYER"); }
+    var nm = typeof st.name === "string" ? st.name.trim().slice(0, 24) : "";
+    setText($("sub2"), "for the moksha of " + (nm || "Mehul"));
+    var s2 = $("sub2"); s2.removeAttribute("font-size"); var w2 = s2.getComputedTextLength(); if (w2 > 940) s2.setAttribute("font-size", Math.floor(62 * 940 / w2));
+    applyView();
+    applyFloors();
+    renderStatic();
+    if (!verseTimerOn) startVerseTimer();
+    if ((view === "live" || view === "gathering") && verseKey === "") nextVoice(true);
+  }
+
+  // ---------- verse panel ----------
+  var verse = $("verse"), v1 = $("v1"), v2 = $("v2"), vmeta = $("vmeta");
+  var verseKey = "", verseTimerOn = false, verseTimeout = 0, featured = -1;
+  function fitLine(node, text, size) {
+    node.setAttribute("font-size", size); node.textContent = text;
+    var w = node.getComputedTextLength(), maxW = 940;
+    if (w > maxW) {
+      size = Math.max(26, Math.floor(size * maxW / w));
+      node.setAttribute("font-size", size);
+      w = node.getComputedTextLength();
+      if (w > maxW) {
+        text = text.slice(0, Math.max(4, Math.floor(text.length * maxW / w) - 2)).replace(/\s+$/, "") + "…";
+        node.textContent = text;
+      }
+    }
+  }
+  function showVerse(l1, l2, meta, color, latin, key) {
+    if (key === verseKey) return;
+    verseKey = key;
+    clearTimeout(verseTimeout);
+    verse.style.opacity = 0;
+    verseTimeout = setTimeout(function () {
+      var cls = latin ? "lat" : "dev";
+      v1.setAttribute("class", cls); v2.setAttribute("class", cls);
+      fitLine(v1, l1, latin ? 50 : 54); fitLine(v2, l2 || "", latin ? 50 : 54);
+      v1.setAttribute("y", l2 ? 1380 : 1416);
+      setText(vmeta, meta); vmeta.setAttribute("fill", color);
+      verse.style.opacity = latin && !l1 ? 0 : 1;
+    }, reduce ? 0 : 500);
+  }
+  function nextVoice(force) {
+    if (view === "resting") { renderStatic(); return; }
+    var vs = S.voices;
+    if (!vs.length) { if (view === "connecting") return; return; }
+    S.voiceIdx = (S.voiceIdx + 1) % vs.length;
+    var v = vs[S.voiceIdx], lines = v.text.split("\n").map(function (x) { return x.trim(); }).filter(Boolean).slice(0, 2);
+    var st = stations[v.station] || stations[0];
+    var g = Math.floor(v.agent / 9) === v.station ? v.agent : v.station * 9 + (v.agent % 9);
+    featured = v.station;
+    if (window.__snd) window.__snd.verse(lines.join(", "));
+    showVerse(lines[0] || "", lines[1] || "", "AGENT " + pad3(g + 1) + "  ·  " + String(v.work_en || st.en).toUpperCase(), st.c, false, "v" + v.station + ":" + v.text + ":" + S.voiceIdx);
+  }
+  function startVerseTimer() { verseTimerOn = true; setInterval(function () { if (!document.hidden) nextVoice(false); }, 5000); }
+
+  // ---------- resting / static lines ----------
+  var feedText = $("feedText"), feedDot = $("feedDot"), feedKey = "";
+  var feedText2 = $("feedText2"), feedLast = null;
+  function feedStyle(node, fs, ls) { node.setAttribute("font-size", fs); node.style.letterSpacing = ls + "em"; }
+  // Fit the feed line inside a 16 px gutter at any card width: tighten spacing, then size, then two lines.
+  function setFeed(text, color) {
+    var key = text + color + "|" + frameEl.clientWidth;
+    feedLast = { text: text, color: color };
+    if (key === feedKey) return;
+    feedKey = key;
+    var maxW = 1080 - 2 * 16 * 1080 / Math.max(240, frameEl.clientWidth) - 80, ls = 0.3, fs = 22, two = false;
+    feedText2.textContent = "";
+    feedText.textContent = text; feedStyle(feedText, fs, ls);
+    while (feedText.getComputedTextLength() > maxW && ls > 0.1) { ls = Math.max(0.1, ls - 0.04); feedStyle(feedText, fs, ls); }
+    while (feedText.getComputedTextLength() > maxW && fs > 18) { fs -= 1; feedStyle(feedText, fs, ls); }
+    if (feedText.getComputedTextLength() > maxW) {
+      var cut = text.indexOf("  ·  "), mid = text.length / 2;
+      if (cut < 0 || Math.abs(cut - mid) > mid * 0.7) { cut = text.lastIndexOf(" ", mid); if (cut < 0) cut = text.indexOf(" "); }
+      if (cut > 0) {
+        two = true;
+        feedText.textContent = text.slice(0, cut).replace(/s+$/, ""); feedText2.textContent = text.slice(cut).replace(/^[s·]+/, "");
+        fs = 22; ls = 0.2; feedStyle(feedText, fs, ls); feedStyle(feedText2, fs, ls);
+        while ((feedText.getComputedTextLength() > maxW || feedText2.getComputedTextLength() > maxW) && ls > 0.06) { ls -= 0.04; feedStyle(feedText, fs, ls); feedStyle(feedText2, fs, ls); }
+        while ((feedText.getComputedTextLength() > maxW || feedText2.getComputedTextLength() > maxW) && fs > 16) { fs -= 1; feedStyle(feedText, fs, ls); feedStyle(feedText2, fs, ls); }
+      }
+    }
+    feedText.setAttribute("y", two ? 1738 : 1762);
+    feedDot.setAttribute("fill", color);
+    feedDot.setAttribute("cy", two ? 1729 : 1753);
+    feedDot.setAttribute("cx", (540 - feedText.getComputedTextLength() / 2 - 22).toFixed(0));
+  }
+  function clockOf(ts) {
+    try { return new Date(ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }); } catch (e) { return ""; }
+  }
+  function renderStatic() {
+    if (view === "connecting") { setFeed("CONNECTING TO THE PRAYER", "#ffd27a"); return; }
+    if (view === "gathering") { setFeed("THE PANDIT AGENTS GATHER FOR THE SUNRISE VANDANA", "#ffe2a0"); return; }
+    if (view === "resting") {
+      var ts = (S.state && S.state.ts) || S.offlineSince;
+      setFeed("THE PANDIT AGENTS ARE RESTING" + (ts ? "  ·  LAST PRAYER " + clockOf(ts) : ""), "#8a7a86");
+      showVerse("The 108 pandit agents are resting.", "The prayer resumes when they wake.", S.state ? "LAST KNOWN COUNTS BELOW" : "NOTHING IS SIMULATED", "#ffd27a", true, "resting");
+      featured = -1;
+    }
+  }
+
+  // ---------- frame loop ----------
+  var prev = nowT, lastFeedAt = 0;
+  var nShloka = $("nShloka"), nMala = $("nMala"), auraC = $("auraC"), coreGlow = $("coreGlow"), omG = $("omG");
+  function frame(ms) {
+    requestAnimationFrame(frame);
+    var t = ms / 1000, dt = Math.min(0.1, t - prev); prev = t;
+    var gath = view === "gathering", rest = view === "resting";
+
+    dim += ((rest ? 0.45 : 1) - dim) * Math.min(1, dt * 3);
+    var decay = Math.exp(-dt / 1.1);
+    for (var i = 0; i < 108; i++) {
+      var b = beads[i];
+      b.lit = Math.max(b.floor, b.lit * decay);
+      b.boost *= decay;
+      var sw = b.sweepAt > t ? 0 : Math.max(0, 1 - (t - b.sweepAt) / 0.5);
+      var k = Math.max(b.lit, sw), base = (0.3 + 0.7 * k) * dim;
+      var key = Math.round(k * 30) + "/" + Math.round(sw * 10) + "/" + Math.round(dim * 20) + "/" + Math.round(b.boost * 4);
+      if (key !== b.shown) {
+        b.shown = key;
+        var r = b.col[0] * base, gg = b.col[1] * base, bb = b.col[2] * base, wmix = Math.max(sw, k * k * 0.45);
+        b.dot.setAttribute("fill", "rgb(" + Math.round(r + (255 - r) * wmix) + "," + Math.round(gg + (255 - gg) * wmix) + "," + Math.round(bb + (255 - bb) * wmix) + ")");
+        b.dot.setAttribute("r", (8.5 + 4 * k + 2.5 * b.boost).toFixed(2));
+        b.halo.setAttribute("opacity", (k * dim).toFixed(2));
+      }
+    }
+
+    // counters: ease toward state + batches, never run backwards
+    var target = S.base + S.extra;
+    if (S.state && S.disp < target) {
+      S.disp += (target - S.disp) * (1 - Math.exp(-dt / 0.3));
+      if (target - S.disp < 0.5) S.disp = target;
+    }
+    if (S.state) {
+      var shownN = Math.round(S.disp);
+      if (shownN !== S.shown) {
+        S.shown = shownN;
+        nShloka.textContent = fmt.format(shownN);
+        var malas = Math.floor(shownN / 108);
+        if (malas > S.lastMala && !S.snap && !rest && t - S.lastSweep > 1.3) {
+          S.lastSweep = t;
+          if (window.__snd) window.__snd.bell();
+          for (var j = 0; j < 108; j++) beads[j].sweepAt = t + j / 108 * 1.3;
+          if (!reduce) { ripples.push({ t0: t }); ripples.push({ t0: t + 0.25 }); ripples.push({ t0: t + 0.5 }); }
+          nMala.classList.remove("bump"); void nMala.getBBox(); nMala.classList.add("bump");
+          omEnergy = 1;
+        }
+        S.lastMala = malas;
+        if (S.snap && S.disp === target) S.snap = false;
+        nMala.textContent = fmt.format(malas);
+      }
+    }
+
+    // live feed line (throttled; layout only when text changes)
+    if (view === "live" && S.latest && t - lastFeedAt > 0.45) {
+      lastFeedAt = t;
+      var st = stations[Math.floor(S.latest.i / 9)];
+      setFeed("AGENT " + pad3(S.latest.i + 1) + " OFFERED A " + st.unit + "  ·  " + st.en, st.c);
+    } else if (view === "live" && !S.latest && t - lastFeedAt > 1) { lastFeedAt = t; setFeed("WAITING FOR THE NEXT OFFERING", "#ffd27a"); }
+
+    // petals breathe with their station
+    for (var s = 0; s < 12; s++) {
+      var floorE = gath ? 1 : rest ? 0.1 : 0.25;
+      energy[s] = Math.max(floorE, energy[s] * Math.exp(-dt / 2.2));
+      var boost = (s === featured && !rest) ? 0.25 : 0, q = Math.round(Math.min(1, energy[s] + boost) * 25);
+      if (q !== shownE[s]) { shownE[s] = q; petals[s].setAttribute("fill-opacity", (0.14 + 0.5 * q / 25).toFixed(2)); }
+    }
+
+    // om and aura
+    omEnergy *= Math.exp(-dt / 0.8);
+    var breath = reduce ? 0.5 : 0.5 + 0.5 * Math.sin(t * 1.3);
+    var rd = rest ? -0.18 : 0, gd = gath ? 0.25 : 0;
+    auraC.setAttribute("opacity", Math.max(0, 0.42 + rd + gd + 0.14 * breath + 0.3 * omEnergy).toFixed(3));
+    coreGlow.setAttribute("opacity", Math.max(0, 0.35 + rd + gd + 0.25 * breath + 0.4 * omEnergy).toFixed(3));
+    omG.setAttribute("transform", "scale(" + (1 + 0.025 * breath + 0.07 * omEnergy).toFixed(4) + ")");
+
+    // canvas
+    ctx.clearRect(0, 0, 1080, 1920);
+    ctx.globalCompositeOperation = "lighter";
+    if (!reduce) {
+      var emA = rest ? 0.4 : 1;
+      for (var n = 0; n < embers.length; n++) {
+        var em = embers[n];
+        em.y -= em.v * dt; if (em.y < -10) { em.y = 1930; em.x = Math.random() * 1080; }
+        var ex = em.x + Math.sin(t * 0.9 + em.ph) * 26;
+        ctx.globalAlpha = em.a * emA * (0.6 + 0.4 * Math.sin(t * 3 + em.ph));
+        ctx.fillStyle = "#ffc46b";
+        ctx.beginPath(); ctx.arc(ex, em.y, em.r, 0, 6.2832); ctx.fill();
+      }
+    }
+    for (n = ripples.length - 1; n >= 0; n--) {
+      var u = (t - ripples[n].t0) / 2.2;
+      if (u > 1) { ripples.splice(n, 1); continue; }
+      if (u < 0) continue;
+      ctx.globalAlpha = (1 - u) * 0.75; ctx.strokeStyle = "#ffe2a0"; ctx.lineWidth = 5 * (1 - u) + 1;
+      ctx.beginPath(); ctx.arc(CX, CY, 150 + 420 * (1 - (1 - u) * (1 - u)), 0, 6.2832); ctx.stroke();
+    }
+    ctx.lineCap = "round";
+    for (n = sparks.length - 1; n >= 0; n--) {
+      var sp = sparks[n], uu = (t - sp.t0) / 1.25;
+      if (uu >= 1) { sparks.splice(n, 1); omEnergy = Math.min(1, omEnergy + 0.07); continue; }
+      var head = sparkPos(sp, uu), tail = sparkPos(sp, Math.max(0, uu - 0.16));
+      ctx.globalAlpha = 0.55; ctx.strokeStyle = sp.hex; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.moveTo(tail[0], tail[1]); ctx.lineTo(head[0], head[1]); ctx.stroke();
+      ctx.globalAlpha = 1; ctx.fillStyle = "#fff";
+      ctx.beginPath(); ctx.arc(head[0], head[1], 4.5, 0, 6.2832); ctx.fill();
+      ctx.globalAlpha = 0.5; ctx.fillStyle = sp.hex;
+      ctx.beginPath(); ctx.arc(head[0], head[1], 10, 0, 6.2832); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // ---------- connection ----------
+  var ws = null, retry = 0, failStreak = 0, reconnectTimer = 0, pollTimer = 0, hiddenTimer = 0, closedForHidden = false;
+  function stopPoll() { clearTimeout(pollTimer); pollTimer = 0; S.polling = false; }
+  function poll() {
+    S.polling = true;
+    fetch("/state", { cache: "no-store" }).then(function (r) { return r.json(); }).then(function (j) { handle(j); }).catch(function () {}).then(function () {
+      if (S.polling) pollTimer = setTimeout(poll, S.offline ? 30000 : 10000);
+    });
+  }
+  function startPoll() { if (!pollTimer && !S.polling) poll(); }
+  function scheduleReconnect() {
+    clearTimeout(reconnectTimer);
+    var delay = Math.min(30000, 1000 * Math.pow(2, retry++)) * (0.7 + Math.random() * 0.6);
+    reconnectTimer = setTimeout(connect, delay);
+  }
+  function connect() {
+    if (DEMO || ws || document.hidden && closedForHidden) return;
+    if (location.protocol !== "http:" && location.protocol !== "https:") return;
+    var sock, opened = false;
+    try { sock = new WebSocket((location.protocol === "https:" ? "wss://" : "ws://") + location.host + "/live"); }
+    catch (e) { failStreak++; if (failStreak >= 2) startPoll(); scheduleReconnect(); return; }
+    ws = sock;
+    sock.onopen = function () { opened = true; retry = 0; failStreak = 0; S.lastMsgAt = Date.now(); stopPoll(); };
+    sock.onmessage = function (ev) { if (typeof ev.data === "string") handle(ev.data); };
+    sock.onclose = function () {
+      if (ws === sock) ws = null;
+      if (!opened) { failStreak++; if (failStreak >= 2) startPoll(); }
+      if (!(document.hidden && closedForHidden)) scheduleReconnect();
+    };
+    sock.onerror = function () { /* onclose follows */ };
+  }
+  setInterval(function () {
+    var stale = !DEMO && S.lastMsgAt > 0 && Date.now() - S.lastMsgAt > 50000;
+    if (stale !== !!S.stale) { S.stale = stale; applyView(); }
+    if (ws && ws.readyState === 1 && S.lastMsgAt && Date.now() - S.lastMsgAt > 45000) { try { ws.close(); } catch (e) {} }
+  }, 5000);
+  document.addEventListener("visibilitychange", function () {
+    if (DEMO) return;
+    if (document.hidden) {
+      clearTimeout(hiddenTimer);
+      hiddenTimer = setTimeout(function () { closedForHidden = true; clearTimeout(reconnectTimer); stopPoll(); if (ws) { try { ws.close(); } catch (e) {} } }, 60000);
+    } else {
+      clearTimeout(hiddenTimer);
+      if (closedForHidden) { closedForHidden = false; retry = 0; connect(); }
+      prev = performance.now() / 1000;
+    }
+  });
+
+  // ---------- demo (local simulation, clearly labelled) ----------
+  function startDemo() {
+    $("demoBadge").setAttribute("display", "inline");
+    var kind = demoParam, units = 431208 + Math.floor(Math.random() * 200), day = 12;
+    var demoVerses = [
+      ["ॐ नमः शिवाय", "", "Om Namah Shivaya"], ["नमामीशमीशान निर्वाणरूपं", "विभुं व्यापकं ब्रह्मवेदस्वरूपम्", "Rudrashtakam"],
+      ["ॐ त्र्यम्बकं यजामहे", "सुगन्धिं पुष्टिवर्धनम्", "Mahamrityunjaya"], ["या देवी सर्वभूतेषु", "शक्तिरूपेण संस्थिता", "Durga Saptashati"],
+      ["नमो नमो दुर्गे सुख करनी", "नमो नमो अम्बे दुःख हरनी", "Durga Chalisa"], ["वक्रतुण्ड महाकाय", "सूर्यकोटि समप्रभ", "Vakratunda"],
+      ["मंगल भवन अमंगल हारी", "द्रवहु सो दसरथ अजिर बिहारी", "Ramcharitmanas"], ["जय हनुमान ज्ञान गुन सागर", "जय कपीस तिहुँ लोक उजागर", "Hanuman Chalisa"],
+      ["शान्ताकारं भुजगशयनं", "पद्मनाभं सुरेशम्", "Vishnu Dhyanam"], ["ॐ श्रीं महालक्ष्म्यै नमः", "", "Lakshmi Mantra"],
+      ["ॐ भूर्भुवः स्वः", "तत्सवितुर्वरेण्यम्", "Gayatri Mantra"], ["ॐ शं शनैश्चराय नमः", "", "Navagraha Mantra"]
+    ];
+    var holders = { "3": 0, "6": 0 }, mode = kind === "gathering" ? "gathering" : kind === "resting" ? "resting" : "praying";
+    function state() {
+      var voices = demoVerses.map(function (v, s) { return { station: s, agent: s * 9 + Math.floor(Math.random() * 9), work_en: v[2], text: v[1] ? v[0] + "\n" + v[1] : v[0] }; });
+      var sts = []; for (var s = 0; s < 12; s++) sts.push({ units_today: Math.floor(units / 12), active: s === 3 || s === 6 ? 1 : 9 });
+      handle({ t: "state", ts: Date.now(), mode: mode, provider: "iceman", name: "Mehul", day: day, streak_days: day, today: { units: units, malas: Math.floor(units / 108), corrections: 41 }, all_time: { units: units + 5e6, malas: 47407 }, stations: sts, voices: voices, relay_holders: holders });
+    }
+    state();
+    if (kind === "resting") { handle({ t: "offline", since: Date.now() - 60000 }); return; }
+    setInterval(state, 5000);
+    if (mode === "gathering") return;
+    setInterval(function () {
+      holders["3"] = (holders["3"] + (Math.random() < 0.15 ? 1 : 0)) % 9; holders["6"] = (holders["6"] + (Math.random() < 0.2 ? 1 : 0)) % 9;
+      var ev = [], n = 8 + Math.floor(Math.random() * 7);
+      for (var q = 0; q < n; q++) {
+        var a = Math.floor(Math.random() * 108), st = Math.floor(a / 9);
+        if (st === 3 || st === 6) a = st * 9 + holders[String(st)];
+        ev.push([a, Math.random() < 0.1 ? 3 : 1]);
+      }
+      units += ev.reduce(function (z, e) { return z + e[1]; }, 0);
+      handle({ t: "batch", ts: Date.now(), ev: ev });
+    }, 1000);
+  }
+
+  // ---------- go ----------
+  applyView();
+  renderStatic();
+  requestAnimationFrame(frame);
+  if (DEMO) startDemo(); else connect();
+  window.__akhand = { S: S, beads: beads, handle: handle, view: function () { return view; } };
+})();
+</script>
+</body>
+</html>
